@@ -56,6 +56,24 @@ export default function Contact({ datas }) {
         <div className="container-x mx-auto">
           <div className="main-wrapper w-full lg:flex lg:space-x-[30px]">
             <div className="lg:w-1/2 w-full">
+            We value your feedback, inquiries, and concerns at SpareBees.com. Our dedicated customer support team is here to assist you and provide the information you need. We encourage you to reach out to us through any of the following channels:
+Customer Support:
+Our customer support team is available to address your questions, concerns, and inquiries. You can contact us via email at support@sparebees.com or by using the contact form on our website. We strive to respond to all inquiries promptly and provide you with the assistance you require.
+Live Chat:
+For real-time support, we offer a live chat feature on our website. Our knowledgeable representatives will be available during business hours to help you with any queries you may have. Look for the live chat icon on our website to connect with a member of our team.
+Frequently Asked Questions (FAQs):
+We have compiled a comprehensive list of frequently asked questions on our website. Before reaching out to us, we recommend checking our FAQs section to see if your question has already been addressed. This resource may provide you with quick answers to common queries.
+Social Media:
+Connect with us on social media platforms such as Facebook, Twitter, and Instagram. Our social media channels are not only a great way to stay updated on the latest products and promotions but also provide you with an additional avenue to reach out to us. Feel free to send us a direct message, comment, or mention on any of our social media platforms.
+Mailing Address:
+If you prefer to reach us by mail, you can send correspondence to the following address: SpareBees.com
+B- Pay E- Com Retailer pvt ltd
+23 48, Canal Bank Rd, CIT Nagar West, CIT Nagar, Chennai, Tamil Nadu 600035
+Please note that our mailing address is for correspondence purposes only, and we encourage you to contact us through other channels for a faster response.
+We value your input and strive to provide excellent customer service. Your feedback is important to us and helps us improve our services. If you have any suggestions, comments, or concerns, please do not hesitate to contact us. We appreciate your support and look forward to assisting you with your automotive parts needs.
+Thank you for choosing SpareBees.com.
+Sincerely,
+The SpareBees.com Team
               {datas.contact && (
                 <div>
                   <h1 className="text-[22px] font-semibold text-qblack leading-[30px] mb-1">
