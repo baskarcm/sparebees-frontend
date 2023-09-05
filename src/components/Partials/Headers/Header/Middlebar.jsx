@@ -4,14 +4,15 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import apiRequest from "../../../../../utils/apiRequest";
+import languageModel from "../../../../../utils/languageModel";
 import { fetchWishlist } from "../../../../store/wishlistData";
 import Cart from "../../../Cart";
+import SearchBox from "../../../Helpers/SearchBox";
 import Compair from "../../../Helpers/icons/Compair";
 import ThinBag from "../../../Helpers/icons/ThinBag";
 import ThinLove from "../../../Helpers/icons/ThinLove";
 import ThinPeople from "../../../Helpers/icons/ThinPeople";
-import SearchBox from "../../../Helpers/SearchBox";
-import languageModel from "../../../../../utils/languageModel";
+
 export default function Middlebar({ className, settings }) {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -20,12 +21,14 @@ export default function Middlebar({ className, settings }) {
   const [profile, setProfile] = useState(false);
   const [auth, setAuth] = useState(null);
   const { compareProducts } = useSelector((state) => state.compareProducts);
+
   useEffect(() => {
     setAuth(JSON.parse(localStorage.getItem("auth")));
   }, []);
   const profilehandler = () => {
     setProfile(!profile);
   };
+
   const logout = () => {
     if (auth) {
       apiRequest.logout(auth.access_token);
@@ -34,16 +37,20 @@ export default function Middlebar({ className, settings }) {
       router.push("/login");
     }
   };
+
   //cart
   const { cart } = useSelector((state) => state.cart);
   const [cartItems, setCartItem] = useState(null);
+  const [langCntnt, setLangCntnt] = useState(null);
+  
   useEffect(() => {
     cart && setCartItem(cart.cartProducts);
   }, [cart]);
-  const [langCntnt, setLangCntnt] = useState(null);
+
   useEffect(() => {
     setLangCntnt(languageModel());
   }, []);
+
   return (
     <div className={`w-full h-[86px] bg-white ${className}`}>
       <div className="container-x mx-auto h-full">
@@ -53,16 +60,19 @@ export default function Middlebar({ className, settings }) {
               <Link href="/" passHref>
                 <a rel="noopener noreferrer">
                   {settings && (
-                    <Image
-                      width="153"
-                      height="44"
-                      objectFit="scale-down"
+                    <div style={{marginTop:"7px"}}>
+                     <Image
+                      width="100%"
+                      height="100%"
+                      objectFit="contain"
+                      className="mt-2"
                       src={`${
                         process.env.NEXT_PUBLIC_BASE_URL + settings.logo
                       }`}
                       alt="logo"
                     />
-                  )}
+                    </div>
+                   )}
                 </a>
               </Link>
             </div>

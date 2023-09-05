@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import FontAwesomeCom from "../../../Helpers/icons/FontAwesomeCom";
 import languageModel from "../../../../../utils/languageModel";
+import FontAwesomeCom from "../../../Helpers/icons/FontAwesomeCom";
 export default function Footer({ settings, contact }) {
+
   const { websiteSetup } = useSelector((state) => state.websiteSetup);
   const [firstCol, setFirstCol] = useState(null);
   const [secondCol, setSecondCol] = useState(null);
@@ -12,9 +13,11 @@ export default function Footer({ settings, contact }) {
   const [footerContent, setFooterContent] = useState(null);
   const [socialLink, setSocialLink] = useState(null);
   const [langCntnt, setLangCntnt] = useState(null);
+
   useEffect(() => {
     setLangCntnt(languageModel());
   }, []);
+  
   useEffect(() => {
     if (!footerContent) {
       setFooterContent(
@@ -312,7 +315,7 @@ export default function Footer({ settings, contact }) {
                 : ""}
             </span>
           </div>
-          {footerContent && footerContent.payment_image ? (
+          {/* {footerContent && footerContent.payment_image ? (
             <div className="mt-2 lg:mt-0">
               <Link href="#" passHref>
                 <a>
@@ -330,7 +333,7 @@ export default function Footer({ settings, contact }) {
             </div>
           ) : (
             ""
-          )}
+          )} */}
         </div>
       </div>
     </footer>
