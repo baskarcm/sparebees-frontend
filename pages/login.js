@@ -5,7 +5,7 @@ import Login from "./../src/components/Auth/Login/index";
 export default function login() {
   return (
     <>
-      <PageHead title="spareBees | Login" />
+      <PageHead title="SpareBees | Login" />
       <Login />
     </>
   );

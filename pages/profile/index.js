@@ -5,7 +5,7 @@ import Layout from "../../src/components/Partials/Layout";
 function Index() {
   return (
     <>
-      <PageHead title="spareBees | Dashboard" />
+      <PageHead title="SpareBees | Dashboard" />
       <Layout childrenClasses="pt-0 pb-0">
         <Profile />
       </Layout>

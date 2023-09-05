@@ -13,7 +13,7 @@ function sellersProductsPage(data) {
   };
   return (
     <>
-      <PageHead title="spareBees | products" />
+      <PageHead title="SpareBees | products" />
       <AllProductPage
         response={data}
         sellerInfo={sellerInfo ? sellerInfo : null}
