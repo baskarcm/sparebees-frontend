@@ -1,11 +1,11 @@
 import React from "react";
-import Login from "./../src/components/Auth/Login/index";
 import PageHead from "../src/components/Helpers/PageHead";
+import Login from "./../src/components/Auth/Login/index";
 
 export default function login() {
   return (
     <>
-      <PageHead title="Ecoshop | Login" />
+      <PageHead title="spareBees | Login" />
       <Login />
     </>
   );

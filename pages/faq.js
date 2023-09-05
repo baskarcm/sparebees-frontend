@@ -5,7 +5,7 @@ import PageHead from "../src/components/Helpers/PageHead";
 export default function faqPage({ data }) {
   return (
     <>
-      <PageHead title="Ecoshop | FAQ" />
+      <PageHead title="spareBees | FAQ" />
       <Faq datas={data} />
     </>
   );

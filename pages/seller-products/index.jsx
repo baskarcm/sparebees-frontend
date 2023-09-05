@@ -13,7 +13,7 @@ function sellersProductsPage(data) {
   };
   return (
     <>
-      <PageHead title="Ecoshop | products" />
+      <PageHead title="spareBees | products" />
       <AllProductPage
         response={data}
         sellerInfo={sellerInfo ? sellerInfo : null}

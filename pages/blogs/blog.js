@@ -12,7 +12,7 @@ const Blogpage = ({ data }) => {
   });
   return (
     <>
-      <PageHead title="Ecoshop | blogs/blog" />
+      <PageHead title="spareBees | blogs/blog" />
       {router.query.slug && <Blog details={data} />}
     </>
   );

@@ -4,7 +4,7 @@ import PageHead from "../src/components/Helpers/PageHead";
 export default function signupPage() {
   return (
     <>
-      <PageHead title="Ecoshop | signup" />
+      <PageHead title="spareBees | signup" />
       <Signup />
     </>
   );
