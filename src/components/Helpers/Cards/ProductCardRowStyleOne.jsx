@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import apiRequest from "../../../../utils/apiRequest";
 import auth from "../../../../utils/auth";
+import languageModel from "../../../../utils/languageModel";
 import settings from "../../../../utils/settings";
 import { fetchCart } from "../../../store/Cart";
 import { fetchCompareProducts } from "../../../store/compareProduct";
@@ -17,7 +18,6 @@ import Compair from "../icons/Compair";
 import QuickViewIco from "../icons/QuickViewIco";
 import Star from "../icons/Star";
 import ThinLove from "../icons/ThinLove";
-import languageModel from "../../../../utils/languageModel";
 const Redirect = ({ message, linkTxt }) => {
   return (
     <div className="flex space-x-2 items-center">
@@ -353,7 +353,7 @@ export default function ProductCardRowStyleOne({ className, datas }) {
                 className="w-full h-full bg-qgreenlow group-hover:bg-qgreen rounded transition-all duration-300 ease-in-out"
               >
                 <div className="w-full h-full flex items-center justify-center space-x-3 text-qgreen group-hover:text-white">
-                  <span>
+                  {/* <span>
                     <svg
                       width="14"
                       height="14"
@@ -371,8 +371,10 @@ export default function ProductCardRowStyleOne({ className, datas }) {
                         </clipPath>
                       </defs>
                     </svg>
+                  </span> */}
+                  <span className="text-base font-semibold">
+                    Get An Enquiry
                   </span>
-                  <span className="text-base font-semibold">Add To Cart</span>
                 </div>
               </button>
             </div>

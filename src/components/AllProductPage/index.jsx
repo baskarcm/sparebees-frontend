@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
-import "react-input-range/lib/css/index.css";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import "react-input-range/lib/css/index.css";
+import languageModel from "../../../utils/languageModel";
+import ProductCardRowStyleOne from "../Helpers/Cards/ProductCardRowStyleOne";
 import ProductCardStyleOne from "../Helpers/Cards/ProductCardStyleOne";
 import DataIteration from "../Helpers/DataIteration";
+import LoaderStyleOne from "../Helpers/Loaders/LoaderStyleOne";
 import Star from "../Helpers/icons/Star";
+import OneColumnAdsTwo from "../Home/ProductAds/OneColumnAdsTwo";
 import Layout from "../Partials/Layout";
 import ProductsFilter from "./ProductsFilter";
-import OneColumnAdsTwo from "../Home/ProductAds/OneColumnAdsTwo";
-import ProductCardRowStyleOne from "../Helpers/Cards/ProductCardRowStyleOne";
-import languageModel from "../../../utils/languageModel";
-import LoaderStyleOne from "../Helpers/Loaders/LoaderStyleOne";
 
 export default function AllProductPage({ response, sellerInfo }) {
+  const router = useRouter();
   const [resProducts, setProducts] = useState(null);
   const [nxtPage, setNxtPage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -139,12 +141,18 @@ export default function AllProductPage({ response, sellerInfo }) {
   const [filterToggle, setToggle] = useState(false);
 
   useEffect(() => {
+    const queryParamsUrl = router?.query?.category;
     setProducts(response.data && response.data.products.data);
     setNxtPage(response.data && response.data.products.next_page_url);
     setCategoriesFilter(
       response.data &&
         response.data.categories.length > 0 &&
         response.data.categories.map((item) => {
+          if (item?.slug === queryParamsUrl)
+            return {
+              ...item,
+              selected: true,
+            };
           return {
             ...item,
             selected: false,
