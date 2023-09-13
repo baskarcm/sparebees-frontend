@@ -6,7 +6,7 @@ export default function PrivacyPolicyPage({ data }) {
   return (
     <>
       <PageHead title="Privacy Policy" />
-      <PrivacyPolicy datas={data} />
+      <PrivacyPolicy datas={data.data} />
     </>
   );
 }
@@ -16,5 +16,5 @@ export async function getServerSideProps() {
     `${process.env.NEXT_PUBLIC_BASE_URL}api/privacy-policy`
   );
   const data = await res.json();
-  return { props: { data } };
+  return { props: { data: {data} } };
 }

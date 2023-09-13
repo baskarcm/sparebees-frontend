@@ -106,7 +106,7 @@ export default function Navbar({ className }) {
                 >
                   <ul className="categories-list relative">
                     {categoryList &&
-                      categoryList.slice(0, 10).map((item) => (
+                      categoryList.map((item) => (
                         <li
                           key={item.id}
                           className="category-item transition-all duration-300 ease-in-out"
@@ -581,7 +581,7 @@ export default function Navbar({ className }) {
                     >
                       <a rel="noopener noreferrer">
                         <span className="flex items-center text-sm font-600 cursor-pointer ">
-                          <div class="flex items-center gap-2">
+                          <div className="flex items-center gap-2">
                             P
                             <Image
                               src="/assets/images/rolls-royce.png"
