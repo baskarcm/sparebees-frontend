@@ -9,14 +9,12 @@ import Layout from "../Partials/Layout";
 import Banner from "./Banner";
 // import BestSellers from "./BestSellers";
 // import BrandSection from "./BrandSection";
-import CampaignCountDown from "./CampaignCountDown";
 // import ProductsAds from "./ProductsAds";
+import Ads from "./Ads";
 import CategorySection from "./CategorySection";
 import ProductsAdsSingleRow from "./ProductAds/ProductAdsSingleRow";
 import ProductsAdsSingleRowTwo from "./ProductAds/ProductAdsSingleRowTwo";
 import TwoColumnAds from "./ProductAds/TwoColumnAds";
-import BestSellers from "./BestSellers";
-import Ads from "./Ads";
 export default function Home({ homepageData }) {
   const [homepage] = useState(homepageData);
   const getsectionTitles = homepageData.section_title;
@@ -82,12 +80,12 @@ export default function Home({ homepageData }) {
         {/*)}*/}
 
         <div className="w-full md:py-[60px] py-[30px] h-auto bg-[#FFFCF7]">
-          {homepage && (
+          {/* {homepage && (
             <CampaignCountDown
               className="md:mb-[60px] mb-[30px]"
               datas={homepage.flashSale}
             />
-          )}
+          )} */}
           {homepage && (
             <ViewMoreTitle
               className="top-selling-product md:mb-[60px] mb-[30px]"
@@ -104,17 +102,17 @@ export default function Home({ homepageData }) {
             </ViewMoreTitle>
           )}
 
-          {homepage && isMultivendor === 1 && (
+          {/* {homepage && isMultivendor === 1 && (
             <ViewMoreTitle
               className="best-sallers-section md:mb-[60px] mb-[30px]"
               seeMoreUrl="/sellers"
-              categoryTitle={sectionTitles && sectionTitles.Best_Seller}
+              categoryTitle={sectionTitles && sectionTitles.Best_Seller} 
             >
               <BestSellers
                 sallers={homepage.sellers.length > 0 ? homepage.sellers : []}
               />
             </ViewMoreTitle>
-          )}
+          )} */}
 
           {homepage && (
             <TwoColumnAds

@@ -1,14 +1,13 @@
 // import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import languageModel from "../../../../../utils/languageModel";
 import Arrow from "../../../Helpers/icons/Arrow";
 import FontAwesomeCom from "../../../Helpers/icons/FontAwesomeCom";
 import Multivendor from "../../../Shared/Multivendor";
-import languageModel from "../../../../../utils/languageModel";
-import React from "react";
-import auth from "../../../../../utils/auth";
-import { useRouter } from "next/router";
 export default function Navbar({ className }) {
   const router = useRouter();
   const { websiteSetup } = useSelector((state) => state.websiteSetup);
@@ -19,6 +18,8 @@ export default function Navbar({ className }) {
   const [categoryToggle, setToggle] = useState(false);
   const [subCatHeight, setHeight] = useState(null);
   const [switchDashboard, setSwitchDashboard] = useState(false);
+  const [premiumCareSpareUrl, setPremiumCareSpareUrl] = useState("");
+
   const switchDashboardHandler = () => {
     setSwitchDashboard(!switchDashboard);
   };
@@ -28,7 +29,11 @@ export default function Navbar({ className }) {
       const dashboardUrl = baseURL + "seller/dashboard";
       router.push(dashboardUrl);
     }
-  }, [switchDashboard]);
+    if (categoryList) {
+      setPremiumCareSpareUrl(categoryList[categoryList.length - 1]);
+    }
+  }, [switchDashboard, categoryList]);
+
   const handler = () => {
     setToggle(!categoryToggle);
   };
@@ -412,15 +417,16 @@ export default function Navbar({ className }) {
                     </div>
                   </li>
                   {Multivendor() === 1 && (
-                    <li>
-                      <Link href="/sellers" passHref>
-                        <a rel="noopener noreferrer">
-                          <span className="flex items-center text-sm font-600 cursor-pointer ">
-                            <span>{langCntnt && langCntnt.Sellers}</span>
-                          </span>
-                        </a>
-                      </Link>
-                    </li>
+                    <></>
+                    // <li>
+                    //   <Link href="/sellers" passHref>
+                    //     <a rel="noopener noreferrer">
+                    //       <span className="flex items-center text-sm font-600 cursor-pointer ">
+                    //         <span>{langCntnt && langCntnt.Sellers}</span>
+                    //       </span>
+                    //     </a>
+                    //   </Link>
+                    // </li>
                   )}
 
                   {/*<li>*/}
@@ -459,6 +465,7 @@ export default function Navbar({ className }) {
                   {/*    </a>*/}
                   {/*  </Link>*/}
                   {/*</li>*/}
+                  {/* pages dropdown */}
                   <li className="relative">
                     <span className="flex items-center text-sm font-600 cursor-pointer ">
                       <span>{langCntnt && langCntnt.Pages}</span>
@@ -561,12 +568,41 @@ export default function Navbar({ className }) {
                       </div>
                     </div>
                   </li>
+                  {/*premium cars link  */}
+                  <li>
+                    <Link
+                      // href="/premium-cars-category"
+                      // passHref
+                      href={{
+                        pathname: "/products",
+                        query: { category: premiumCareSpareUrl?.slug },
+                      }}
+                      // passHref
+                    >
+                      <a rel="noopener noreferrer">
+                        <span className="flex items-center text-sm font-600 cursor-pointer ">
+                          <div class="flex items-center gap-2">
+                            P
+                            <Image
+                              src="/assets/images/rolls-royce.png"
+                              width={35}
+                              height={24}
+                              alt="car"
+                            />{" "}
+                            spares
+                          </div>
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
+            {/* seller login */}
             {Multivendor() === 1 && (
               <>
-                {auth() && parseInt(auth().is_vendor) === 1 ? (
+                {/* {auth() && parseInt(auth().is_vendor) === 1 ? 
+                (
                   <div className="become-seller-btn rounded overflow-hidden">
                     <button onClick={switchDashboardHandler} type="button">
                       <div className=" w-[174px] h-[52px] flex justify-center items-center cursor-pointer ">
@@ -592,7 +628,7 @@ export default function Navbar({ className }) {
                       </a>
                     </Link>
                   </div>
-                )}
+                )} */}
               </>
             )}
           </div>

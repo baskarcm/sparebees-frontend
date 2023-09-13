@@ -1,7 +1,7 @@
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import AllProductPage from "../../src/components/AllProductPage/index";
 import PageHead from "../../src/components/Helpers/PageHead";
-import { useRouter } from "next/router";
 export default function AllProductsPageData(data) {
   const { seoSetting } = data.data;
   const router = useRouter();
