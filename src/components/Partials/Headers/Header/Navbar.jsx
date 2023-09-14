@@ -18,7 +18,6 @@ export default function Navbar({ className }) {
   const [categoryToggle, setToggle] = useState(false);
   const [subCatHeight, setHeight] = useState(null);
   const [switchDashboard, setSwitchDashboard] = useState(false);
-  const [premiumCareSpareUrl, setPremiumCareSpareUrl] = useState("");
 
   const switchDashboardHandler = () => {
     setSwitchDashboard(!switchDashboard);
@@ -28,9 +27,6 @@ export default function Navbar({ className }) {
       const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
       const dashboardUrl = baseURL + "seller/dashboard";
       router.push(dashboardUrl);
-    }
-    if (categoryList) {
-      setPremiumCareSpareUrl(categoryList[categoryList.length - 1]);
     }
   }, [switchDashboard, categoryList]);
 
@@ -43,9 +39,11 @@ export default function Navbar({ className }) {
     setHeight(categorySelector.offsetHeight);
   }, [categoryToggle]);
   const [langCntnt, setLangCntnt] = useState(null);
+
   useEffect(() => {
     setLangCntnt(languageModel());
   }, []);
+
   return (
     <div
       className={`nav-widget-wrapper w-full  h-[70px] relative z-30  ${
@@ -99,6 +97,7 @@ export default function Navbar({ className }) {
                 <div
                   style={{
                     boxShadow: " 0px 15px 50px 0px rgba(0, 0, 0, 0.14)",
+                    overflowY: "scroll !important",
                   }}
                   className={`category-dropdown w-full absolute left-0 top-[53px]  ${
                     categoryToggle ? "block" : "hidden"
@@ -274,7 +273,7 @@ export default function Navbar({ className }) {
               </div>
               <div className="nav">
                 <ul className="nav-wrapper flex xl:space-x-10 space-x-5">
-                  <li>
+                  {/* <li>
                     <span className="flex items-center text-sm font-600 cursor-pointer ">
                       <span>{langCntnt && langCntnt.Shop}</span>
                       <span className="ml-1.5 ">
@@ -415,7 +414,8 @@ export default function Navbar({ className }) {
                         )}
                       </div>
                     </div>
-                  </li>
+                  </li>  */}
+
                   {Multivendor() === 1 && (
                     <></>
                     // <li>
@@ -437,8 +437,9 @@ export default function Navbar({ className }) {
                   {/*      </span>*/}
                   {/*    </a>*/}
                   {/*  </Link>*/}
-                  {/*</li>*/}
-                  <li>
+                  {/*</li>
+
+                  {/* <li>
                     <Link href="/blogs" passHref>
                       <a rel="noopener noreferrer">
                         <span className="flex items-center text-sm font-600 cursor-pointer capitalize">
@@ -446,16 +447,7 @@ export default function Navbar({ className }) {
                         </span>
                       </a>
                     </Link>
-                  </li>
-                  <li>
-                    <Link href="/about" passHref>
-                      <a rel="noopener noreferrer">
-                        <span className="flex items-center text-sm font-600 cursor-pointer ">
-                          <span>{langCntnt && langCntnt.About}</span>
-                        </span>
-                      </a>
-                    </Link>
-                  </li>
+                  </li>  */}
                   {/*<li>*/}
                   {/*  <Link href="/contact" passHref>*/}
                   {/*    <a rel="noopener noreferrer">*/}
@@ -465,15 +457,16 @@ export default function Navbar({ className }) {
                   {/*    </a>*/}
                   {/*  </Link>*/}
                   {/*</li>*/}
+
                   {/* pages dropdown */}
-                  <li className="relative">
-                    <span className="flex items-center text-sm font-600 cursor-pointer ">
+                  {/* <li className="relative"> */}
+                  {/* <span className="flex items-center text-sm font-600 cursor-pointer ">
                       <span>{langCntnt && langCntnt.Pages}</span>
                       <span className="ml-1.5 ">
                         <Arrow className="fill-current" />
                       </span>
-                    </span>
-                    <div className="sub-menu w-[280px] absolute left-0 top-[60px]">
+                    </span> */}
+                  {/* <div className="sub-menu w-[280px] absolute left-0 top-[60px]">
                       <div
                         className="w-full bg-white rounded flex justify-between items-center "
                         style={{
@@ -483,8 +476,8 @@ export default function Navbar({ className }) {
                         <div className="categories-wrapper w-full h-full p-5">
                           <div>
                             <div className="category-items">
-                              <ul className="flex flex-col space-y-2">
-                                <li>
+                              <ul className="flex flex-col space-y-2"> */}
+                  {/* <li>
                                   <Link href="/privacy-policy" passHref>
                                     <a rel="noopener noreferrer">
                                       <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
@@ -502,24 +495,25 @@ export default function Navbar({ className }) {
                                       </span>
                                     </a>
                                   </Link>
-                                </li>
-                                {Multivendor() === 1 && (
-                                  <li>
-                                    <Link
-                                      href="seller-terms-condition"
-                                      passHref
-                                    >
-                                      <a rel="noopener noreferrer">
-                                        <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
-                                          {langCntnt &&
-                                            langCntnt.Seller_terms_and_conditions}
-                                        </span>
-                                      </a>
-                                    </Link>
-                                  </li>
-                                )}
+                                </li> */}
+                  {Multivendor() === 1 && (
+                    <></>
+                    // <li>
+                    //   <Link
+                    //     href="seller-terms-condition"
+                    //     passHref
+                    //   >
+                    //     <a rel="noopener noreferrer">
+                    //       <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                    //         {langCntnt &&
+                    //           langCntnt.Seller_terms_and_conditions}
+                    //       </span>
+                    //     </a>
+                    //   </Link>
+                    // </li>
+                  )}
 
-                                <li>
+                  {/* <li>
                                   <Link href="/faq" passHref>
                                     <a rel="noopener noreferrer">
                                       <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
@@ -527,8 +521,8 @@ export default function Navbar({ className }) {
                                       </span>
                                     </a>
                                   </Link>
-                                </li>
-                                {customPages &&
+                                </li> */}
+                  {/* {customPages &&
                                   customPages.length > 0 &&
                                   customPages.map((item, i) => (
                                     // eslint-disable-next-line react/jsx-key
@@ -546,42 +540,89 @@ export default function Navbar({ className }) {
                                         </Link>
                                       </li>
                                     </React.Fragment>
-                                  ))}
-                                {/*<li>*/}
-                                {/*  <Link href="#">*/}
-                                {/*    <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">*/}
-                                {/*      Shop Category Icon*/}
-                                {/*    </span>*/}
-                                {/*  </Link>*/}
-                                {/*</li>*/}
-                                {/*<li>*/}
-                                {/*  <Link href="#">*/}
-                                {/*    <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">*/}
-                                {/*      Shop List View*/}
-                                {/*    </span>*/}
-                                {/*  </Link>*/}
-                                {/*</li>*/}
-                              </ul>
+                                  ))} */}
+                  {/* <li>
+                                  <Link href="#">
+                                    <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                                      Shop Category Icon
+                                    </span>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="#">
+                                    <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                                      Shop List View
+                                    </span>
+                                  </Link>
+                                </li> */}
+                  {/* </ul>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
+                  {/* </li> */}
+
+                  {/*two wheelers link  */}
+                  <li>
+                    <Link
+                      href={{
+                        pathname: "/products",
+                        query: { category: "two-wheelers" },
+                      }}
+                      passHref
+                    >
+                      <a rel="noopener noreferrer">
+                        <span className="flex items-center text-sm font-600 cursor-pointer ">
+                          Two Wheelers
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
+                  {/*three wheelers link  */}
+                  <li>
+                    <Link
+                      href={{
+                        pathname: "/products",
+                        query: { category: "three-wheelers" },
+                      }}
+                      passHref
+                    >
+                      <a rel="noopener noreferrer">
+                        <span className="flex items-center text-sm font-600 cursor-pointer ">
+                          Three Wheelers
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
+                  {/*four wheelers link  */}
+                  <li>
+                    <Link
+                      href={{
+                        pathname: "/products",
+                        query: { category: "four-wheelers" },
+                      }}
+                      passHref
+                    >
+                      <a rel="noopener noreferrer">
+                        <span className="flex items-center text-sm font-600 cursor-pointer ">
+                          Four Wheelers
+                        </span>
+                      </a>
+                    </Link>
                   </li>
                   {/*premium cars link  */}
                   <li>
                     <Link
-                      // href="/premium-cars-category"
-                      // passHref
                       href={{
                         pathname: "/products",
-                        query: { category: premiumCareSpareUrl?.slug },
+                        query: { category: "premium-car-spare" },
                       }}
-                      // passHref
+                      passHref
                     >
                       <a rel="noopener noreferrer">
                         <span className="flex items-center text-sm font-600 cursor-pointer ">
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-start gap-2">
                             P
                             <Image
                               src="/assets/images/rolls-royce.png"
@@ -595,8 +636,28 @@ export default function Navbar({ className }) {
                       </a>
                     </Link>
                   </li>
+                  {/* about */}
+                  <li>
+                    <Link href="/about" passHref>
+                      <a rel="noopener noreferrer">
+                        <span className="flex items-center text-sm font-600 cursor-pointer ">
+                          <span>{langCntnt && langCntnt.About}</span>
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
                 </ul>
               </div>
+            </div>
+            {/* tracking order link  */}
+            <div className="flex xl:space-x-7 space-x-3 items-center">
+              <Link href="/tracking-order" passHref>
+                <a rel="noopener noreferrer">
+                  <span className="flex items-center text-sm text-white font-600 cursor-pointer">
+                    {langCntnt && langCntnt.Track_Order}
+                  </span>
+                </a>
+              </Link>
             </div>
             {/* seller login */}
             {Multivendor() === 1 && (
