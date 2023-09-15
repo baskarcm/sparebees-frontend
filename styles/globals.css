@@ -46,47 +46,47 @@
 }
 /*League Spartan*/
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-Black.ttf");
   font-weight: 900;
 }
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-Bold.ttf");
   font-weight: 700;
 }
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-ExtraBold.ttf");
   font-weight: 800;
 }
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-ExtraLight.ttf");
   font-weight: 200;
 }
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-Light.ttf");
   font-weight: 300;
 }
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-Medium.ttf");
   font-weight: 500;
 }
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-Regular.ttf");
   font-weight: 400;
 }
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-SemiBold.ttf");
   font-weight: 600;
 }
 @font-face {
-  font-family: 'League Spartan';
+  font-family: "League Spartan";
   src: url("../public/assets/fonts/LeagueSpartan-Thin.ttf");
   font-weight: 100;
 }
@@ -95,9 +95,9 @@
 @tailwind utilities;
 
 /*TODO:  ========= default ========= */
-:root{
-  --primary-color:#34A853;
-  --secondary-color:red;
+:root {
+  --primary-color: #34a853;
+  --secondary-color: red;
 }
 *,
 *:before,
@@ -108,14 +108,15 @@
 }
 html {
   font-family: "Inter", sans-serif;
-
 }
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-h1,h2,h3{
+h1,
+h2,
+h3 {
   font-family: "League Spartan", sans-serif !important;
 }
 .font-100 {
@@ -145,71 +146,67 @@ h1,h2,h3{
 .font-900 {
   font-weight: 900;
 }
-.primary-bg{
+.primary-bg {
   background: var(--primary-color) !important;
 }
-.secondary-bg{
+.secondary-bg {
   background: var(--secondary-color) !important;
 }
-.primary-text{
+.primary-text {
   color: var(--primary-color) !important;
 }
-.primary-border{
+.primary-border {
   border-color: var(--primary-color) !important;
 }
-.quick-view-grid .qv-item:hover{
+.quick-view-grid .qv-item:hover {
   background: var(--primary-color) !important;
 }
-.blog .details :is(p,span){
-  color:#9A9A9A !important;
+.blog .details :is(p, span) {
+  color: #9a9a9a !important;
   font-size: 15px !important;
   line-height: 30px !important;
   text-align: start !important;
 }
-.product-detail-des :is(p, span, ul li){
-  color:#797979 !important;
-
+.product-detail-des :is(p, span, ul li) {
+  color: #797979 !important;
 }
-.about-content :is(h1,h2,h3){
-  color:#222222 !important;
+.about-content :is(h1, h2, h3) {
+  color: #222222 !important;
   font-size: 42px !important;
   font-weight: bold !important;
   line-height: 52px !important;
   text-align: start !important;
   margin-bottom: 0 !important;
-
 }
 .about-content p,
 .about-content p span {
   font-size: 15px !important;
-  color:#797979 !important;
-
+  color: #797979 !important;
 }
 .about-content ul li a,
 .about-content ol li a,
 .about-content ul li span,
-.about-content ol li span{
-  color:#222222 !important;
+.about-content ol li span {
+  color: #222222 !important;
   font-size: 15px !important;
 }
-.about-test-btn{
+.about-test-btn {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
 }
-.about-test-btn:hover{
+.about-test-btn:hover {
   background: var(--primary-color);
   color: white;
 }
-.about-test-btn:focus{
+.about-test-btn:focus {
   background: var(--primary-color);
   color: white;
 }
-.blog-title:hover{
+.blog-title:hover {
   color: var(--primary-color);
 }
-.about-content ul li{
+.about-content ul li {
   margin-bottom: 12px;
-
 }
 .about-content ul li::before {
   content: "\2713";
@@ -238,7 +235,7 @@ h1,h2,h3{
   height: 100px;
 }
 .button.is-play .button-outer-circle {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -310,7 +307,7 @@ h1,h2,h3{
 }
 .feedback-slider-wrapper .slick-slider .slick-list .slick-slide .item {
   opacity: 60%;
-  border:1px solid transparent;
+  border: 1px solid transparent;
 }
 .feedback-slider-wrapper
   .slick-slider
@@ -318,8 +315,7 @@ h1,h2,h3{
   .slick-slide.slick-current
   .item {
   opacity: 100%;
-  border:1px solid #34A853;
-
+  border: 1px solid #34a853;
 }
 .container-x {
   @apply md:px-8 xl:px-0 px-5 w-full;
@@ -393,7 +389,7 @@ h1,h2,h3{
   display: none;
 }
 .row-categories .cat-item::before {
-  content:'';
+  content: "";
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -401,37 +397,37 @@ h1,h2,h3{
   margin-right: 5px;
   transform: translateY(-2px);
 
-  @apply  bg-qgreen
+  @apply bg-qgreen;
 }
 .accordion-item p,
 .accordion-item p span,
-.accordion-item p span{
+.accordion-item p span {
   line-height: 22px !important;
   font-size: 15px !important;
   color: white !important;
   margin: 0 !important;
   padding: 0 !important;
 }
-.terms-condition-page :is(h1,h2,h3,h4,h5){
-  color:#222222 !important;
-  font-size:26px !important;
+.terms-condition-page :is(h1, h2, h3, h4, h5) {
+  color: #222222 !important;
+  font-size: 26px !important;
   font-weight: bold !important;
   line-height: 52px !important;
   text-align: start !important;
   margin-bottom: 0 !important;
 }
-.terms-condition-page :is(ul,ol){
+.terms-condition-page :is(ul, ol) {
   list-style-type: initial !important;
-  margin-left:30px !important;
-  margin-top:14px;
-  margin-bottom:14px;
+  margin-left: 30px !important;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
-.terms-condition-page :is(p, span, p span, li, a){
-  color:#797979 !important;
+.terms-condition-page :is(p, span, p span, li, a) {
+  color: #797979 !important;
   font-size: 15px !important;
   line-height: 30px !important;
 }
-  /*TODO:  ========= components ========= */
+/*TODO:  ========= components ========= */
 .search-input {
   @apply w-full h-full focus:outline-none focus:ring-0 pl-5 text-xs font-500 placeholder:text-qgraytwo;
 }
@@ -444,7 +440,7 @@ h1,h2,h3{
 
 /*TODO:=========home one=========*/
 .search-btn {
-  @apply  text-white;
+  @apply text-white;
   background: var(--primary-color);
 }
 .cart-wrappwer {
@@ -458,7 +454,7 @@ h1,h2,h3{
 .quomodo-shop-middle-bar .cart-wrapper .cart-wrappwer {
   border-color: var(--primary-color);
 }
-.quomodo-shop-middle-bar .mini-profile{
+.quomodo-shop-middle-bar .mini-profile {
   border-color: var(--primary-color);
 }
 .nav-widget-wrapper .nav .nav-wrapper li {
@@ -471,14 +467,18 @@ h1,h2,h3{
   @apply text-qblack;
   background: var(--secondary-color);
 }
-.nav-widget-wrapper .category-dropdown .categories-list .category-item{
+.nav-widget-wrapper .category-dropdown .categories-list .category-item {
   @apply bg-white text-qblack;
 }
 .nav-widget-wrapper .category-dropdown .categories-list .category-item:hover {
   background: var(--primary-color);
 }
-.nav-widget-wrapper .category-dropdown .categories-list .category-item:hover :is(.icon, .name, .icon-arrow) {
-  color:white;
+.nav-widget-wrapper
+  .category-dropdown
+  .categories-list
+  .category-item:hover
+  :is(.icon, .name, .icon-arrow) {
+  color: white;
 }
 
 .nav-widget-wrapper
@@ -491,12 +491,12 @@ h1,h2,h3{
   @apply bg-white text-qblack;
 }
 .nav-widget-wrapper
-.category-dropdown
-.categories-list
-.category-item
-.sub-category-lvl-two
-ul
-li.category-item:hover {
+  .category-dropdown
+  .categories-list
+  .category-item
+  .sub-category-lvl-two
+  ul
+  li.category-item:hover {
   background: var(--primary-color);
   color: white;
 }
@@ -511,13 +511,13 @@ li.category-item:hover {
   @apply bg-white text-qblack;
 }
 .nav-widget-wrapper
-.category-dropdown
-.categories-list
-.category-item
-.sub-category-lvl-two
-.sub-category-lvl-three
-ul
-li.category-item:hover {
+  .category-dropdown
+  .categories-list
+  .category-item
+  .sub-category-lvl-two
+  .sub-category-lvl-three
+  ul
+  li.category-item:hover {
   background: var(--primary-color);
   color: white;
 }
@@ -526,7 +526,11 @@ li.category-item:hover {
   @apply bg-qh2-green text-white;
 }
 .home-two
-  :is(.cart-wrappwer, .product-card-style-one-two, .product-row-card-style-one-two)
+  :is(
+    .cart-wrappwer,
+    .product-card-style-one-two,
+    .product-row-card-style-one-two
+  )
   .yellow-btn {
   @apply bg-qh2-green text-white;
 }
@@ -563,7 +567,7 @@ li.category-item:hover {
 .category-dropdown {
   transition: all 0.5s ease-in-out;
   overflow-x: scroll;
-    max-height: 400px;
+  max-height: 400px;
 }
 .category .category-dropdown .categories-list .category-item {
   border-top: 1px solid #f8f8f8;
@@ -633,17 +637,16 @@ li.category-item:hover {
   display: block;
 }
 /*TODO: ===============home page============ */
-.hero-slider-wrapper .slick-dots{
+.hero-slider-wrapper .slick-dots {
   bottom: -10px;
   text-align: start;
 }
-.hero-slider-wrapper .slick-dots li button:before{
-  content:'';
+.hero-slider-wrapper .slick-dots li button:before {
+  content: "";
   background: var(--primary-color);
-  width:22px;
+  width: 22px;
   height: 7px;
   border-radius: 4px;
-
 }
 /*.hero-slider-wrapper .slick-dots li.slick-active button:before{*/
 /*  width:30px;*/
@@ -754,14 +757,14 @@ li.category-item:hover {
 }
 
 /*color dynamic*/
-.d-btn{
+.d-btn {
   background: var(--primary-color);
 }
 
 /* TODO: ===============RESPONSIVE */
 
 @media (max-width: 426px) {
-  .about-content :is(h1,h2,h3) {
+  .about-content :is(h1, h2, h3) {
     font-size: 30px !important;
   }
 }
@@ -798,6 +801,32 @@ li.category-item:hover {
 @media (max-width: 1536px) {
   .container-x {
     max-width: 1190px !important;
+  }
+}
+/* slider */
+
+.slick-slide > div {
+  margin: 0 12px;
+}
+.slick-list {
+  margin: 0 -12px;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+.slick-prev {
+  left: -32px;
+}
+.slick-next {
+  right: -32px;
+}
+@media (max-width: 768px) {
+  .slick-prev {
+    left: -20px;
+  }
+  .slick-next {
+    right: -20px;
   }
 }
 

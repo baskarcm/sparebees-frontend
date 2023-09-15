@@ -185,7 +185,7 @@ export default function Home({ homepageData }) {
             }
             sectionTitle={sectionTitles && sectionTitles.Best_Products}
             seeMoreUrl={`/products?highlight=best_product`}
-            className="category-products md:py-[60px] py-[30px] bg-white"
+            className="category-products md:py-[60px] sm:mb-[40px]  py-[30px] bg-white"
           />
         )}
       </Layout>

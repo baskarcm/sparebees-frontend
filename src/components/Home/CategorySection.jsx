@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Slider from "react-slick";
 
 function CategorySection({
   sectionTitle,
@@ -9,6 +10,47 @@ function CategorySection({
   adsTwo,
   adsThree,
 }) {
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="category-section-wrapper w-full bg-white">
       <div className="container-x mx-auto py-[60px]">
@@ -47,10 +89,11 @@ function CategorySection({
               </Link>
             </div>
           </div>
-          <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]">
+          {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px] "> */}
+          <Slider {...settings}>
             {categories.length > 0 &&
               categories
-                .slice(0, categories.length > 6 ? 6 : categories.length)
+                // .slice(0, categories.length > 6 ? 6 : categories.length)
                 .map((item, i) => (
                   <div
                     data-aos="fade-left"
@@ -85,7 +128,8 @@ function CategorySection({
                     </Link>
                   </div>
                 ))}
-          </div>
+          </Slider>
+          {/* </div> */}
         </div>
         {/* two wheelers section */}
         <div className="my-[60px]">
@@ -123,10 +167,11 @@ function CategorySection({
               </Link>
             </div>
           </div>
-          <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]">
+          {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]"> */}
+          <Slider {...settings}>
             {categories.length > 0 &&
               categories
-                .slice(0, categories.length > 6 ? 6 : categories.length)
+                // .slice(0, categories.length > 6 ? 6 : categories.length)
                 .map((item, i) => (
                   <div
                     data-aos="fade-left"
@@ -161,7 +206,8 @@ function CategorySection({
                     </Link>
                   </div>
                 ))}
-          </div>
+          </Slider>
+          {/* </div> */}
         </div>
         {/* three wheelers section */}
         <div className="my-[60px]">
@@ -199,10 +245,11 @@ function CategorySection({
               </Link>
             </div>
           </div>
-          <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]">
+          {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]"> */}
+          <Slider {...settings}>
             {categories.length > 0 &&
               categories
-                .slice(0, categories.length > 6 ? 6 : categories.length)
+                // .slice(0, categories.length > 6 ? 6 : categories.length)
                 .map((item, i) => (
                   <div
                     data-aos="fade-left"
@@ -237,7 +284,8 @@ function CategorySection({
                     </Link>
                   </div>
                 ))}
-          </div>
+          </Slider>
+          {/* </div> */}
         </div>
         {/* four wheelers section */}
         <div className="my-[60px]">
@@ -275,10 +323,11 @@ function CategorySection({
               </Link>
             </div>
           </div>
-          <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]">
+          {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]"> */}
+          <Slider {...settings}>
             {categories.length > 0 &&
               categories
-                .slice(0, categories.length > 6 ? 6 : categories.length)
+                // .slice(0, categories.length > 6 ? 6 : categories.length)
                 .map((item, i) => (
                   <div
                     data-aos="fade-left"
@@ -313,7 +362,8 @@ function CategorySection({
                     </Link>
                   </div>
                 ))}
-          </div>
+          </Slider>
+          {/* </div> */}
         </div>
         {/* <div className="grid lg:grid-cols-3 grid-cols-1 gap-[30px]">
           <div data-aos="fade-right" className="item w-full rounded">
