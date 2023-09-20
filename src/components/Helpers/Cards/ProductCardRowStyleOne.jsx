@@ -373,7 +373,9 @@ export default function ProductCardRowStyleOne({ className, datas }) {
                     </svg>
                   </span> */}
                   <span className="text-base font-semibold">
-                    Get An Enquiry
+                    {datas.category_id === 27
+                      ? "Get An Enquiry"
+                      : "Add To Cart"}
                   </span>
                 </div>
               </button>

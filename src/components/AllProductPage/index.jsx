@@ -23,6 +23,7 @@ export default function AllProductPage({ response, sellerInfo }) {
   const [categoriesFilter, setCategoriesFilter] = useState(null);
   const [brands, setBrands] = useState(null);
   const [cardViewStyle, setCardViewStyle] = useState("col");
+
   const products =
     resProducts &&
     resProducts.length > 0 &&
@@ -35,6 +36,7 @@ export default function AllProductPage({ response, sellerInfo }) {
         price: item.price,
         offer_price: item.offer_price,
         campaingn_product: null,
+        category_id: item.category_id,
         review: parseInt(item.averageRating),
         variants: item.active_variants ? item.active_variants : [],
       };
@@ -340,6 +342,7 @@ export default function AllProductPage({ response, sellerInfo }) {
   useEffect(() => {
     setLangCntnt(languageModel());
   }, []);
+
   return (
     <>
       <Layout childrenClasses="pt-0 pb-0">

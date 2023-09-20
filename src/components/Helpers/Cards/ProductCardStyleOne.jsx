@@ -434,7 +434,9 @@ export default function ProductCardStyleOne({ datas }) {
                   </defs>
                 </svg>
               </span> */}
-              <span className="text-base font-semibold">Get An Enquiry</span>
+              <span className="text-base font-semibold">
+                {datas.category_id === 27 ? "Get An Enquiry" : "Add To Cart"}
+              </span>
             </div>
           </button>
         </div>
