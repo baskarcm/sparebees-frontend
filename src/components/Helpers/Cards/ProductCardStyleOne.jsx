@@ -435,13 +435,17 @@ export default function ProductCardStyleOne({ datas }) {
                 </svg>
               </span> */}
               <span className="text-base font-semibold">
-                {datas.category_id === 27 ? "Get An Enquiry" : "Add To Cart"}
+                {datas.slug === "premium-car-spare" ? "Get An Enquiry" : "Add To Cart"}
               </span>
             </div>
           </button>
         </div>
       </div>
       {/* quick-access-btns */}
+      { datas.slug === "premium-car-spare" ? (
+  <>
+  </>
+):(
       <div className="quick-access-btns flex flex-col space-y-2">
         <button
           className=" absolute group-hover:right-4 -right-10 top-20  transition-all ease-in-out"
@@ -484,6 +488,7 @@ export default function ProductCardStyleOne({ datas }) {
           </span>
         </button>
       </div>
+)}
       {quickViewModal && quickViewData && (
         <div className="quicke-view-wrapper w-full h-full flex fixed left-0 top-0 justify-center z-50 items-center ">
           <div

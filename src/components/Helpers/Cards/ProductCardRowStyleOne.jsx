@@ -373,7 +373,7 @@ export default function ProductCardRowStyleOne({ className, datas }) {
                     </svg>
                   </span> */}
                   <span className="text-base font-semibold">
-                    {datas.category_id === 27
+                    {datas.slug === "premium-car-spare"
                       ? "Get An Enquiry"
                       : "Add To Cart"}
                   </span>
@@ -384,47 +384,51 @@ export default function ProductCardRowStyleOne({ className, datas }) {
         </div>
       </div>
       {/* quick-access-btns */}
-      <div className="quick-access-btns flex flex-col space-y-2">
-        <button
-          className=" absolute group-hover:left-4 -left-10 top-5  transition-all ease-in-out"
-          type="button"
-          onClick={() => quickViewHandler(datas.slug)}
-        >
-          <span className="w-10 h-10 flex justify-center text-black hover:text-white items-center transition-all duration-300 ease-in-out hover:bg-qgreen bg-qgreenlow rounded">
-            <QuickViewIco className="fill-current" />
-          </span>
-        </button>
-        {!arWishlist ? (
+      {datas.slug === "premium-car-spare" ? (
+        <></>
+      ) : (
+        <div className="quick-access-btns flex flex-col space-y-2">
           <button
-            className=" absolute group-hover:left-4 -left-10 top-[60px] duration-300   transition-all ease-in-out"
+            className=" absolute group-hover:left-4 -left-10 top-5  transition-all ease-in-out"
             type="button"
-            onClick={() => addToWishlist(datas.id)}
+            onClick={() => quickViewHandler(datas.slug)}
           >
-            <span className="w-10 h-10 flex text-black hover:text-white justify-center items-center transition-all duration-300 ease-in-out hover:bg-qgreen bg-qgreenlow rounded">
-              <ThinLove className="fill-current" />
+            <span className="w-10 h-10 flex justify-center text-black hover:text-white items-center transition-all duration-300 ease-in-out hover:bg-qgreen bg-qgreenlow rounded">
+              <QuickViewIco className="fill-current" />
             </span>
           </button>
-        ) : (
+          {!arWishlist ? (
+            <button
+              className=" absolute group-hover:left-4 -left-10 top-[60px] duration-300   transition-all ease-in-out"
+              type="button"
+              onClick={() => addToWishlist(datas.id)}
+            >
+              <span className="w-10 h-10 flex text-black hover:text-white justify-center items-center transition-all duration-300 ease-in-out hover:bg-qgreen bg-qgreenlow rounded">
+                <ThinLove className="fill-current" />
+              </span>
+            </button>
+          ) : (
+            <button
+              className=" absolute group-hover:left-4 -left-10 top-[60px] duration-300   transition-all ease-in-out"
+              type="button"
+              onClick={() => removeToWishlist(wishlisted && wishlisted.id)}
+            >
+              <span className="w-10 h-10 flex justify-center items-center bg-qgreenlow rounded">
+                <ThinLove fill={true} />
+              </span>
+            </button>
+          )}
           <button
-            className=" absolute group-hover:left-4 -left-10 top-[60px] duration-300   transition-all ease-in-out"
+            className=" absolute group-hover:left-4 -left-10 top-[107px]  transition-all duration-500 ease-in-out"
             type="button"
-            onClick={() => removeToWishlist(wishlisted && wishlisted.id)}
+            onClick={() => productCompare(datas.id)}
           >
-            <span className="w-10 h-10 flex justify-center items-center bg-qgreenlow rounded">
-              <ThinLove fill={true} />
+            <span className="w-10 h-10 flex justify-center text-black hover:text-white transition-all duration-300 ease-in-out items-center hover:bg-qgreen bg-qgreenlow rounded">
+              <Compair />
             </span>
           </button>
-        )}
-        <button
-          className=" absolute group-hover:left-4 -left-10 top-[107px]  transition-all duration-500 ease-in-out"
-          type="button"
-          onClick={() => productCompare(datas.id)}
-        >
-          <span className="w-10 h-10 flex justify-center text-black hover:text-white transition-all duration-300 ease-in-out items-center hover:bg-qgreen bg-qgreenlow rounded">
-            <Compair />
-          </span>
-        </button>
-      </div>
+        </div>
+      )}
       {quickViewModal && quickViewData && (
         <div className="quicke-view-wrapper w-full h-full flex fixed left-0 top-0 justify-center z-50 items-center ">
           <div
