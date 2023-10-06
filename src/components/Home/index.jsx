@@ -143,13 +143,13 @@ export default function Home({ homepageData }) {
           />
         )}
 
-        {homepage && (
+        {/* {homepage && (
           <ProductsAdsSingleRow
             ads={homepage.singleBannerOne}
             sectionHeight="lg:h-[365px] h-[400px]"
             className="products-ads-section "
           />
-        )}
+        )} */}
         <div
           className="md:py-[60px] py-[30px]"
           style={{
