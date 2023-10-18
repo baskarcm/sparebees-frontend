@@ -1,6 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import auth from "../../../../../utils/auth";
-import axios from "axios";
 import languageModel from "../../../../../utils/languageModel";
 
 export default function Dashboard({ dashBoardData }) {
@@ -85,24 +85,24 @@ export default function Dashboard({ dashBoardData }) {
     if (!country) {
       getCountry();
     }
-  }, []);
+  }, [country, getCountry]);
   useEffect(() => {
     if (country) {
       getState(country.id);
     }
-  }, [country]);
+  }, [country, getState]);
 
   useEffect(() => {
     if (state) {
       getcity(state.id);
     }
-  }, [state]);
+  }, [state,getcity]);
 
   return (
     <>
-      <div className="welcome-msg w-full">
+      <div className="w-full welcome-msg">
         <div>
-          <p className="text-qblack text-lg">
+          <p className="text-lg text-qblack">
             {langCntnt && langCntnt.Hello}, {dashBoardData.personInfo.name}
           </p>
           <h1 className="font-bold text-[24px] text-qblack">
@@ -110,7 +110,7 @@ export default function Dashboard({ dashBoardData }) {
           </h1>
         </div>
       </div>
-      <div className="quick-view-grid w-full lg:flex justify-between lg:space-x-2 xl:space-x-0 items-center mt-3 ">
+      <div className="items-center justify-between w-full mt-3 quick-view-grid lg:flex lg:space-x-2 xl:space-x-0 ">
         <div className="qv-item xl:w-[252px] xl:h-[208px] lg:w-1/2 w-full mb-5 xl:mb-0 bg-qblack group transition-all duration-300 ease-in-out p-6 rounded">
           <div className="w-[62px] h-[62px] rounded bg-white flex justify-center items-center">
             <span>
@@ -136,7 +136,7 @@ export default function Dashboard({ dashBoardData }) {
               </svg>
             </span>
           </div>
-          <p className="text-xl text-white group-hover:text-white mt-5">
+          <p className="mt-5 text-xl text-white group-hover:text-white">
             {langCntnt && langCntnt.New_Orders}
           </p>
           <span className="text-[40px] text-white group-hover:text-white font-bold leading-none mt-1 block">
@@ -160,7 +160,7 @@ export default function Dashboard({ dashBoardData }) {
               </svg>
             </span>
           </div>
-          <p className="text-xl text-white group-hover:text-white mt-5">
+          <p className="mt-5 text-xl text-white group-hover:text-white">
             {langCntnt && langCntnt.Delivery_Completed}
           </p>
           <span className="text-[40px] text-white group-hover:text-white font-bold leading-none mt-1 block">
@@ -192,7 +192,7 @@ export default function Dashboard({ dashBoardData }) {
               </svg>
             </span>
           </div>
-          <p className="text-xl text-white group-hover:text-white mt-5">
+          <p className="mt-5 text-xl text-white group-hover:text-white">
             {langCntnt && langCntnt.Total_Orders}
           </p>
           <span className="text-[40px] text-white group-hover:text-white font-bold leading-none mt-1 block">
@@ -200,7 +200,7 @@ export default function Dashboard({ dashBoardData }) {
           </span>
         </div>
       </div>
-      <div className="dashboard-info mt-8 xl:flex justify-between items-center bg-primarygray rounded xl:p-7 p-3">
+      <div className="items-center justify-between p-3 mt-8 rounded dashboard-info xl:flex bg-primarygray xl:p-7">
         <div className="mb-10 xl:mb-0">
           <p className="title text-[22px] font-semibold">
             {langCntnt && langCntnt.Personal_Information}
@@ -212,7 +212,7 @@ export default function Dashboard({ dashBoardData }) {
                   <td className="text-base text-qgraytwo w-[100px] block capitalize">
                     <p>{langCntnt && langCntnt.Name}:</p>
                   </td>
-                  <td className="text-base text-qblack font-medium">
+                  <td className="text-base font-medium text-qblack">
                     {dashBoardData.personInfo.name}
                   </td>
                 </tr>
@@ -220,7 +220,7 @@ export default function Dashboard({ dashBoardData }) {
                   <td className="text-base text-qgraytwo w-[100px] block capitalize">
                     <p>{langCntnt && langCntnt.Email}:</p>
                   </td>
-                  <td className="text-base text-qblack font-medium">
+                  <td className="text-base font-medium text-qblack">
                     {dashBoardData.personInfo.email}
                   </td>
                 </tr>
@@ -228,7 +228,7 @@ export default function Dashboard({ dashBoardData }) {
                   <td className="text-base text-qgraytwo w-[100px] block capitalize">
                     <p>{langCntnt && langCntnt.phone}:</p>
                   </td>
-                  <td className="text-base text-qblack font-medium">
+                  <td className="text-base font-medium text-qblack">
                     {dashBoardData.personInfo.phone
                       ? dashBoardData.personInfo.phone
                       : ""}
@@ -238,7 +238,7 @@ export default function Dashboard({ dashBoardData }) {
                   <td className="text-base text-qgraytwo w-[100px] block capitalize">
                     <p>{langCntnt && langCntnt.Address}:</p>
                   </td>
-                  <td className="text-base text-qblack font-medium">
+                  <td className="text-base font-medium text-qblack">
                     {country &&
                       state &&
                       city &&
@@ -266,7 +266,7 @@ export default function Dashboard({ dashBoardData }) {
                       <td className="text-base text-qgraytwo w-[100px] block capitalize">
                         <p>{langCntnt && langCntnt.Name}:</p>
                       </td>
-                      <td className="text-base text-qblack font-medium">
+                      <td className="text-base font-medium text-qblack">
                         {dashBoardData.sellerInfo.shop_name}
                       </td>
                     </tr>
@@ -274,7 +274,7 @@ export default function Dashboard({ dashBoardData }) {
                       <td className="text-base text-qgraytwo w-[100px] block capitalize">
                         <p>{langCntnt && langCntnt.Email}:</p>
                       </td>
-                      <td className="text-base text-qblack font-medium">
+                      <td className="text-base font-medium text-qblack">
                         {dashBoardData.sellerInfo.email}
                       </td>
                     </tr>
@@ -282,7 +282,7 @@ export default function Dashboard({ dashBoardData }) {
                       <td className="text-base text-qgraytwo w-[100px] block capitalize">
                         <p>{langCntnt && langCntnt.phone}:</p>
                       </td>
-                      <td className="text-base text-qblack font-medium">
+                      <td className="text-base font-medium text-qblack">
                         {dashBoardData.sellerInfo.phone}
                       </td>
                     </tr>
@@ -290,7 +290,7 @@ export default function Dashboard({ dashBoardData }) {
                       <td className="text-base text-qgraytwo w-[100px] block capitalize">
                         <div>{langCntnt && langCntnt.Address}:</div>
                       </td>
-                      <td className="text-base text-qblack font-medium">
+                      <td className="text-base font-medium text-qblack">
                         {dashBoardData.sellerInfo.address}
                       </td>
                     </tr>
@@ -298,7 +298,7 @@ export default function Dashboard({ dashBoardData }) {
                     {/*  <td className="text-base text-qgraytwo w-[100px] block capitalize">*/}
                     {/*    <div>Zip:</div>*/}
                     {/*  </td>*/}
-                    {/*  <td className="text-base text-qblack font-medium">*/}
+                    {/*  <td className="text-base font-medium text-qblack">*/}
                     {/*    4040*/}
                     {/*  </td>*/}
                     {/*</tr>*/}

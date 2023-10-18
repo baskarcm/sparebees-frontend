@@ -461,7 +461,7 @@ function CheakoutPage() {
         })
       );
     }
-  }, [carts]);
+  }, [carts,checkProductExistsInFlashSale,setMainTotalPrice,shippingHandler]);
   const [mainTotalPrice, setMainTotalPrice] = useState(null);
   useEffect(() => {
     if (shippingCharge) {
@@ -941,9 +941,9 @@ function CheakoutPage() {
               ]}
             />
           </div>
-          <div className="checkout-main-content w-full">
-            <div className="container-x mx-auto">
-              {/*<div className="w-full sm:mb-10 mb-5">*/}
+          <div className="w-full checkout-main-content">
+            <div className="mx-auto container-x">
+              {/*<div className="w-full mb-5 sm:mb-10">*/}
               {/*  <div className="sm:flex sm:space-x-[18px] s">*/}
               {/*    <div className="sm:w-1/2 w-full mb-5 h-[70px]">*/}
               {/*      <a href="#">*/}
@@ -966,14 +966,14 @@ function CheakoutPage() {
               {/*  </div>*/}
               {/*</div>*/}
               <div className="w-full lg:flex lg:space-x-[30px]">
-                <div className="lg:w-4/6 w-full">
-                  <h1 className="sm:text-2xl text-xl text-qblack font-medium mt-5 mb-5">
+                <div className="w-full lg:w-4/6">
+                  <h1 className="mt-5 mb-5 text-xl font-medium sm:text-2xl text-qblack">
                     {langCntnt && langCntnt.Addresses}
                   </h1>
                   {!newAddress && (
-                    <div className="addresses-widget w-full">
-                      <div className="sm:flex justify-between items-center w-full mb-5">
-                        <div className="bg-qgreenlow border border-qgreen rounded p-2">
+                    <div className="w-full addresses-widget">
+                      <div className="items-center justify-between w-full mb-5 sm:flex">
+                        <div className="p-2 border rounded bg-qgreenlow border-qgreen">
                           <button
                             onClick={() => setActiveAddress("billing")}
                             type="button"
@@ -1011,7 +1011,7 @@ function CheakoutPage() {
                       {activeAddress === "billing" ? (
                         <div
                           data-aos="zoom-in"
-                          className="grid sm:grid-cols-2 grid-cols-1 gap-3"
+                          className="grid grid-cols-1 gap-3 sm:grid-cols-2"
                         >
                           {addresses &&
                             addresses.length > 0 &&
@@ -1025,7 +1025,7 @@ function CheakoutPage() {
                                     : "border-transparent bg-primarygray"
                                 }`}
                               >
-                                <div className="flex justify-between items-center">
+                                <div className="flex items-center justify-between">
                                   <p className="title text-[22px] font-semibold">
                                     {langCntnt && langCntnt.Address} #{i + 1}
                                   </p>
@@ -1061,7 +1061,7 @@ function CheakoutPage() {
                                             {langCntnt && langCntnt.Name}:
                                           </div>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.name}
                                         </td>
                                       </tr>
@@ -1071,7 +1071,7 @@ function CheakoutPage() {
                                             {langCntnt && langCntnt.Email}:
                                           </div>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.email}
                                         </td>
                                       </tr>
@@ -1081,7 +1081,7 @@ function CheakoutPage() {
                                             {langCntnt && langCntnt.phone}:
                                           </div>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.phone}
                                         </td>
                                       </tr>
@@ -1091,7 +1091,7 @@ function CheakoutPage() {
                                             {langCntnt && langCntnt.Country}:
                                           </div>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.country.name}
                                         </td>
                                       </tr>
@@ -1101,7 +1101,7 @@ function CheakoutPage() {
                                             {langCntnt && langCntnt.State}:
                                           </div>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.country_state.name}
                                         </td>
                                       </tr>
@@ -1111,7 +1111,7 @@ function CheakoutPage() {
                                             {langCntnt && langCntnt.City}:
                                           </div>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.city.name}
                                         </td>
                                       </tr>
@@ -1119,7 +1119,7 @@ function CheakoutPage() {
                                   </table>
                                 </div>
                                 {address.id === selectedBilling && (
-                                  <span className="text-white bg-qgreen px-2 text-sm absolute right-3 rounded -top-2 font-medium">
+                                  <span className="absolute px-2 text-sm font-medium text-white rounded bg-qgreen right-3 -top-2">
                                     {langCntnt && langCntnt.Selected}
                                   </span>
                                 )}
@@ -1129,7 +1129,7 @@ function CheakoutPage() {
                       ) : (
                         <div
                           data-aos="zoom-in"
-                          className="grid sm:grid-cols-2 grid-cols-1 gap-3"
+                          className="grid grid-cols-1 gap-3 sm:grid-cols-2"
                         >
                           {addresses &&
                             addresses.length > 0 &&
@@ -1148,7 +1148,7 @@ function CheakoutPage() {
                                     : "border-transparent bg-primarygray"
                                 }`}
                               >
-                                <div className="flex justify-between items-center">
+                                <div className="flex items-center justify-between">
                                   <p className="title text-[22px] font-semibold">
                                     {langCntnt && langCntnt.Address} #{i + 1}
                                   </p>
@@ -1182,7 +1182,7 @@ function CheakoutPage() {
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1">
                                           <p>{langCntnt && langCntnt.Name}:</p>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.name}
                                         </td>
                                       </tr>
@@ -1190,7 +1190,7 @@ function CheakoutPage() {
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1">
                                           <p>{langCntnt && langCntnt.Email}:</p>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.email}
                                         </td>
                                       </tr>
@@ -1198,7 +1198,7 @@ function CheakoutPage() {
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1">
                                           <p>{langCntnt && langCntnt.phone}:</p>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.phone}
                                         </td>
                                       </tr>
@@ -1208,7 +1208,7 @@ function CheakoutPage() {
                                             {langCntnt && langCntnt.Country}:
                                           </p>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.country.name}
                                         </td>
                                       </tr>
@@ -1216,7 +1216,7 @@ function CheakoutPage() {
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1">
                                           <p>{langCntnt && langCntnt.State}:</p>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.country_state.name}
                                         </td>
                                       </tr>
@@ -1224,7 +1224,7 @@ function CheakoutPage() {
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1">
                                           <p>{langCntnt && langCntnt.City}:</p>
                                         </td>
-                                        <td className="text-base text-qblack line-clamp-1 font-medium">
+                                        <td className="text-base font-medium text-qblack line-clamp-1">
                                           {address.city.name}
                                         </td>
                                       </tr>
@@ -1232,7 +1232,7 @@ function CheakoutPage() {
                                   </table>
                                 </div>
                                 {address.id === selectedShipping && (
-                                  <span className="text-white rounded bg-qgreen px-2 text-sm absolute right-3 -top-2 font-medium">
+                                  <span className="absolute px-2 text-sm font-medium text-white rounded bg-qgreen right-3 -top-2">
                                     {langCntnt && langCntnt.Selected}
                                   </span>
                                 )}
@@ -1244,17 +1244,17 @@ function CheakoutPage() {
                   )}
                   {newAddress && (
                     <div data-aos="zoom-in" className="w-full">
-                      <div className="flex justify-between items-center">
-                        <h1 className="sm:text-2xl text-xl text-qblack font-medium mb-5">
+                      <div className="flex items-center justify-between">
+                        <h1 className="mb-5 text-xl font-medium sm:text-2xl text-qblack">
                           {langCntnt && langCntnt.Add_New_Address}
                         </h1>
                         <span
                           onClick={() => setNewAddress(!newAddress)}
-                          className="text-qgreen cursor-pointer"
+                          className="cursor-pointer text-qgreen"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
+                            className="w-5 h-5"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                           >
@@ -1269,8 +1269,8 @@ function CheakoutPage() {
                       <div className="form-area">
                         <form>
                           <div className="mb-6">
-                            <div className="sm:flex sm:space-x-5 items-center">
-                              <div className="sm:w-1/2 w-full  mb-5 sm:mb-0">
+                            <div className="items-center sm:flex sm:space-x-5">
+                              <div className="w-full mb-5 sm:w-1/2 sm:mb-0">
                                 <InputCom
                                   label={
                                     langCntnt && langCntnt.First_Name + "*"
@@ -1286,7 +1286,7 @@ function CheakoutPage() {
                                   }
                                 />
                               </div>
-                              <div className="sm:w-1/2 w-full">
+                              <div className="w-full sm:w-1/2">
                                 <InputCom
                                   label={langCntnt && langCntnt.Last_Name + "*"}
                                   placeholder={langCntnt && langCntnt.Last_name}
@@ -1300,7 +1300,7 @@ function CheakoutPage() {
                               </div>
                             </div>
                             {errors && Object.hasOwn(errors, "name") ? (
-                              <span className="text-sm mt-1 text-qred">
+                              <span className="mt-1 text-sm text-qred">
                                 {errors.name[0]}
                               </span>
                             ) : (
@@ -1308,8 +1308,8 @@ function CheakoutPage() {
                             )}
                           </div>
 
-                          <div className="flex space-x-5 items-center mb-6">
-                            <div className="sm:w-1/2 w-full">
+                          <div className="flex items-center mb-6 space-x-5">
+                            <div className="w-full sm:w-1/2">
                               <InputCom
                                 label={
                                   langCntnt && langCntnt.Email_Address + "*"
@@ -1323,14 +1323,14 @@ function CheakoutPage() {
                                 }
                               />
                               {errors && Object.hasOwn(errors, "email") ? (
-                                <span className="text-sm mt-1 text-qred">
+                                <span className="mt-1 text-sm text-qred">
                                   {errors.email[0]}
                                 </span>
                               ) : (
                                 ""
                               )}
                             </div>
-                            <div className="sm:w-1/2 w-full">
+                            <div className="w-full sm:w-1/2">
                               <InputCom
                                 label={
                                   langCntnt && langCntnt.Phone_Number + "*"
@@ -1344,7 +1344,7 @@ function CheakoutPage() {
                                 }
                               />
                               {errors && Object.hasOwn(errors, "phone") ? (
-                                <span className="text-sm mt-1 text-qred">
+                                <span className="mt-1 text-sm text-qred">
                                   {errors.phone[0]}
                                 </span>
                               ) : (
@@ -1371,7 +1371,7 @@ function CheakoutPage() {
                               >
                                 {({ item }) => (
                                   <>
-                                    <div className="flex justify-between items-center w-full">
+                                    <div className="flex items-center justify-between w-full">
                                       <div>
                                         <span className="text-[13px] text-qblack">
                                           {item}
@@ -1397,14 +1397,14 @@ function CheakoutPage() {
                               </Selectbox>
                             </div>
                             {errors && Object.hasOwn(errors, "country") ? (
-                              <span className="text-sm mt-1 text-qred">
+                              <span className="mt-1 text-sm text-qred">
                                 {errors.country[0]}
                               </span>
                             ) : (
                               ""
                             )}
                           </div>
-                          <div className="flex space-x-5 items-center mb-6">
+                          <div className="flex items-center mb-6 space-x-5">
                             <div className="w-1/2">
                               <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
                                 {langCntnt && langCntnt.State}*
@@ -1424,7 +1424,7 @@ function CheakoutPage() {
                                 >
                                   {({ item }) => (
                                     <>
-                                      <div className="flex justify-between items-center w-full">
+                                      <div className="flex items-center justify-between w-full">
                                         <div>
                                           <span className="text-[13px] text-qblack">
                                             {item}
@@ -1450,7 +1450,7 @@ function CheakoutPage() {
                                 </Selectbox>
                               </div>
                               {errors && Object.hasOwn(errors, "state") ? (
-                                <span className="text-sm mt-1 text-qred">
+                                <span className="mt-1 text-sm text-qred">
                                   {errors.state[0]}
                                 </span>
                               ) : (
@@ -1476,7 +1476,7 @@ function CheakoutPage() {
                                 >
                                   {({ item }) => (
                                     <>
-                                      <div className="flex justify-between items-center w-full">
+                                      <div className="flex items-center justify-between w-full">
                                         <div>
                                           <span className="text-[13px] text-qblack">
                                             {item}
@@ -1502,7 +1502,7 @@ function CheakoutPage() {
                                 </Selectbox>
                               </div>
                               {errors && Object.hasOwn(errors, "city") ? (
-                                <span className="text-sm mt-1 text-qred">
+                                <span className="mt-1 text-sm text-qred">
                                   {errors.city[0]}
                                 </span>
                               ) : (
@@ -1510,7 +1510,7 @@ function CheakoutPage() {
                               )}
                             </div>
                           </div>
-                          <div className=" mb-6">
+                          <div className="mb-6 ">
                             <div className="w-full">
                               <InputCom
                                 value={address}
@@ -1525,7 +1525,7 @@ function CheakoutPage() {
                                 }
                               />
                               {errors && Object.hasOwn(errors, "address") ? (
-                                <span className="text-sm mt-1 text-qred">
+                                <span className="mt-1 text-sm text-qred">
                                   {errors.address[0]}
                                 </span>
                               ) : (
@@ -1534,8 +1534,8 @@ function CheakoutPage() {
                             </div>
                           </div>
 
-                          <div className="flex space-x-5 items-center ">
-                            <div className="flex space-x-2 items-center mb-10">
+                          <div className="flex items-center space-x-5 ">
+                            <div className="flex items-center mb-10 space-x-2">
                               <div>
                                 <input
                                   checked={home}
@@ -1556,7 +1556,7 @@ function CheakoutPage() {
                                 {langCntnt && langCntnt.home}
                               </label>
                             </div>
-                            <div className="flex space-x-2 items-center mb-10">
+                            <div className="flex items-center mb-10 space-x-2">
                               <div>
                                 <input
                                   checked={office}
@@ -1583,7 +1583,7 @@ function CheakoutPage() {
                             type="button"
                             className="w-full h-[50px]"
                           >
-                            <div className="green-btn rounded">
+                            <div className="rounded green-btn">
                               <span className="text-sm text-white">
                                 {langCntnt && langCntnt.Save_Address}
                               </span>
@@ -1605,7 +1605,7 @@ function CheakoutPage() {
 
                 <div className="flex-1">
                   <div className="mb-10">
-                    <h1 className="sm:text-2xl text-xl text-qblack font-medium mt-5 mb-5">
+                    <h1 className="mt-5 mb-5 text-xl font-medium sm:text-2xl text-qblack">
                       {langCntnt && langCntnt.Apply_Coupon}
                     </h1>
                     <div className="discount-code rounded overflow-hidden  w-full mb-5 sm:mb-0 h-[50px] flex ">
@@ -1623,20 +1623,20 @@ function CheakoutPage() {
                         className="w-[90px] h-[50px]"
                       >
                         <div className="green-btn">
-                          <span className="text-sm text-white  font-semibold">
+                          <span className="text-sm font-semibold text-white">
                             {langCntnt && langCntnt.Apply}
                           </span>
                         </div>
                       </button>
                     </div>
                   </div>
-                  <h1 className="sm:text-2xl text-xl text-qblack font-medium mt-5 mb-5">
+                  <h1 className="mt-5 mb-5 text-xl font-medium sm:text-2xl text-qblack">
                     {langCntnt && langCntnt.Order_Summary}
                   </h1>
 
                   <div className="w-full px-10 py-[30px] rounded border border-[#CBECD9]">
-                    <div className="sub-total mb-6">
-                      <div className=" flex justify-between mb-5">
+                    <div className="mb-6 sub-total">
+                      <div className="flex justify-between mb-5 ">
                         <p className="text-[13px] font-medium text-qblack uppercase">
                           {langCntnt && langCntnt.Product}
                         </p>
@@ -1652,7 +1652,7 @@ function CheakoutPage() {
                           carts.length > 0 &&
                           carts.map((item) => (
                             <li key={item.id}>
-                              <div className="flex justify-between items-center">
+                              <div className="flex items-center justify-between">
                                 <div>
                                   <h4
                                     title={item.product.name}
@@ -1691,7 +1691,7 @@ function CheakoutPage() {
                     </div>
                     <div className="w-full h-[1px] bg-[#CBECD9]"></div>
                     <div className="mt-[20px]">
-                      <div className=" flex justify-between mb-5">
+                      <div className="flex justify-between mb-5 ">
                         <p className="text-[13px] text-qblack uppercase font-bold">
                           {langCntnt && langCntnt.SUBTOTAL}
                         </p>
@@ -1704,7 +1704,7 @@ function CheakoutPage() {
                             : parseFloat(totalPrice).toFixed(2)}
                         </p>
                       </div>
-                      <div className=" flex justify-between mb-5">
+                      <div className="flex justify-between mb-5 ">
                         <p className="text-[13px] text-qblack uppercase font-bold">
                           {langCntnt && langCntnt.Discount_coupon} (-)
                         </p>
@@ -1719,7 +1719,7 @@ function CheakoutPage() {
                         </p>
                       </div>
                     </div>
-                    <div className="shipping mb-6 mt-6">
+                    <div className="mt-6 mb-6 shipping">
                       <span className="text-[15px] font-medium text-qblack mb-[18px] block">
                         {langCntnt && langCntnt.Shipping} (+)
                       </span>
@@ -1735,7 +1735,7 @@ function CheakoutPage() {
                                     <>
                                       {parseInt(rule.condition_to) >=
                                       parseInt(totalPrice) ? (
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex items-center justify-between">
                                           <div className="flex space-x-2.5 items-center">
                                             <div className="input-radio">
                                               <input
@@ -1766,7 +1766,7 @@ function CheakoutPage() {
                                           </span>
                                         </div>
                                       ) : parseInt(rule.condition_to) === -1 ? (
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex items-center justify-between">
                                           <div className="flex space-x-2.5 items-center">
                                             <div className="input-radio">
                                               <input
@@ -1810,7 +1810,7 @@ function CheakoutPage() {
                                     <>
                                       {parseInt(rule.condition_to) >=
                                       parseInt(totalWeight) ? (
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex items-center justify-between">
                                           <div className="flex space-x-2.5 items-center">
                                             <div className="input-radio">
                                               <input
@@ -1841,7 +1841,7 @@ function CheakoutPage() {
                                           </span>
                                         </div>
                                       ) : parseInt(rule.condition_to) === -1 ? (
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex items-center justify-between">
                                           <div className="flex space-x-2.5 items-center">
                                             <div className="input-radio">
                                               <input
@@ -1885,7 +1885,7 @@ function CheakoutPage() {
                                     <>
                                       {parseInt(rule.condition_to) >=
                                       totalQty ? (
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex items-center justify-between">
                                           <div className="flex space-x-2.5 items-center">
                                             <div className="input-radio">
                                               <input
@@ -1916,7 +1916,7 @@ function CheakoutPage() {
                                           </span>
                                         </div>
                                       ) : parseInt(rule.condition_to) == -1 ? (
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex items-center justify-between">
                                           <div className="flex space-x-2.5 items-center">
                                             <div className="input-radio">
                                               <input
@@ -1958,8 +1958,8 @@ function CheakoutPage() {
                       </div>
                     </div>
                     <div className="mt-[30px]">
-                      <div className=" flex justify-between mb-5">
-                        <p className="text-2xl font-medium text-qblack capitalize">
+                      <div className="flex justify-between mb-5 ">
+                        <p className="text-2xl font-medium capitalize text-qblack">
                           {langCntnt && langCntnt.total}
                         </p>
                         <p
@@ -1989,7 +1989,7 @@ function CheakoutPage() {
                               `}
                             >
                               <div className="w-full">
-                                <span className="text-qblack font-bold text-base">
+                                <span className="text-base font-bold text-qblack">
                                   {langCntnt && langCntnt.Cash_On_Delivery}
                                 </span>
                               </div>
@@ -2000,7 +2000,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2023,7 +2023,7 @@ function CheakoutPage() {
                                   : "border border-[#CBECD9]"
                               }`}
                             >
-                              <div className="w-full flex justify-center">
+                              <div className="flex justify-center w-full">
                                 <span>
                                   <svg
                                     viewBox="0 0 60 25"
@@ -2048,7 +2048,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2071,8 +2071,8 @@ function CheakoutPage() {
                                   : "border border-[#CBECD9]"
                               }`}
                             >
-                              <div className="w-full flex justify-center">
-                                <span class="text-qblack font-bold text-base" title="( UPI/ Debit Card /NetBanking / Google Pay/ PhonePe / BHIM )">
+                              <div className="flex justify-center w-full">
+                                <span className="text-qblack font-bold text-base" title="( UPI/ Debit Card /NetBanking / Google Pay/ PhonePe / BHIM )">
                                 PayOnline
                                   {/* <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2096,7 +2096,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2119,7 +2119,7 @@ function CheakoutPage() {
                                   : "border border-[#CBECD9]"
                               }`}
                             >
-                              <div className="w-full flex justify-center">
+                              <div className="flex justify-center w-full">
                                 <span>
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2153,7 +2153,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2176,7 +2176,7 @@ function CheakoutPage() {
                                   : "border border-[#CBECD9]"
                               }`}
                             >
-                              <div className="w-full flex justify-center">
+                              <div className="flex justify-center w-full">
                                 <span>
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2200,7 +2200,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2223,7 +2223,7 @@ function CheakoutPage() {
                                   : "border border-[#CBECD9]"
                               }`}
                             >
-                              <div className="w-full flex justify-center">
+                              <div className="flex justify-center w-full">
                                 <span>
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2259,7 +2259,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2282,7 +2282,7 @@ function CheakoutPage() {
                                   : "border border-[#CBECD9]"
                               }`}
                             >
-                              <div className="w-full flex justify-center">
+                              <div className="flex justify-center w-full">
                                 <span>
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2308,7 +2308,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2331,7 +2331,7 @@ function CheakoutPage() {
                                   : "border border-[#CBECD9]"
                               }`}
                             >
-                              <div className="w-full flex justify-center">
+                              <div className="flex justify-center w-full">
                                 <span>
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2372,7 +2372,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2396,7 +2396,7 @@ function CheakoutPage() {
                               }`}
                             >
                               <div className="w-full">
-                                <span className="text-qblack font-bold text-base">
+                                <span className="text-base font-bold text-qblack">
                                   {langCntnt && langCntnt.Bank_Payment}
                                 </span>
                               </div>
@@ -2407,7 +2407,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2430,8 +2430,8 @@ function CheakoutPage() {
                                   : "border border-[#CBECD9]"
                               }`}
                             >
-                              <div className="w-full flex justify-center">
-                                <span className="text-qblack font-bold text-base">
+                              <div className="flex justify-center w-full">
+                                <span className="text-base font-bold text-qblack">
                                   <Sslcommerce />
                                 </span>
                               </div>
@@ -2442,7 +2442,7 @@ function CheakoutPage() {
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
+                                    className="w-6 h-6"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                   >
@@ -2463,7 +2463,7 @@ function CheakoutPage() {
                         <>
                           <div
                             onClick={() => setPaymentMethod("")}
-                            className="w-full h-full fixed left-0 top-0 z-10"
+                            className="fixed top-0 left-0 z-10 w-full h-full"
                           ></div>
                           <div
                             style={{ zIndex: "999" }}
@@ -2471,7 +2471,7 @@ function CheakoutPage() {
                             className="w-[359px] bg-white shadow-2xl p-2 rounded absolute -left-10 top-0"
                           >
                             <div className="stripe-inputs">
-                              <div className="input-item mb-5">
+                              <div className="mb-5 input-item">
                                 <InputCom
                                   placeholder="Number"
                                   name="number"
@@ -2490,15 +2490,15 @@ function CheakoutPage() {
                                 />
                                 {stripeError &&
                                 Object.hasOwn(stripeError, "card_number") ? (
-                                  <span className="text-sm mt-1 text-qred">
+                                  <span className="mt-1 text-sm text-qred">
                                     {stripeError.card_number[0]}
                                   </span>
                                 ) : (
                                   ""
                                 )}
                               </div>
-                              <div className="flex space-x-2 items-center">
-                                <div className="input-item mb-5">
+                              <div className="flex items-center space-x-2">
+                                <div className="mb-5 input-item">
                                   <InputCom
                                     placeholder="Expire Date"
                                     name="date"
@@ -2517,14 +2517,14 @@ function CheakoutPage() {
                                   {stripeError &&
                                   Object.hasOwn(stripeError, "month") &&
                                   Object.hasOwn(stripeError, "year") ? (
-                                    <span className="text-sm mt-1 text-qred">
+                                    <span className="mt-1 text-sm text-qred">
                                       Date in required
                                     </span>
                                   ) : (
                                     ""
                                   )}
                                 </div>
-                                <div className="input-item mb-5">
+                                <div className="mb-5 input-item">
                                   <InputCom
                                     placeholder="CVV"
                                     name="cvv"
@@ -2541,7 +2541,7 @@ function CheakoutPage() {
                                   />
                                   {stripeError &&
                                   Object.hasOwn(stripeError, "cvv") ? (
-                                    <span className="text-sm mt-1 text-qred">
+                                    <span className="mt-1 text-sm text-qred">
                                       {stripeError.cvv[0]}
                                     </span>
                                   ) : (
@@ -2549,7 +2549,7 @@ function CheakoutPage() {
                                   )}
                                 </div>
                               </div>
-                              <div className="input-item mb-5">
+                              <div className="mb-5 input-item">
                                 <InputCom
                                   placeholder="Card Holder"
                                   name="card"
@@ -2586,10 +2586,10 @@ function CheakoutPage() {
                       )}
                     </div>
                     {selectPayment === "bankpayment" && (
-                      <div className="w-full bank-inputs mt-5">
-                        <div className="input-item mb-5">
-                          <div className="bank-info-alert w-full p-5 bg-amber-100 rounded mb-4 overflow-x-scroll">
-                            <pre className="w-full table table-fixed">
+                      <div className="w-full mt-5 bank-inputs">
+                        <div className="mb-5 input-item">
+                          <div className="w-full p-5 mb-4 overflow-x-scroll rounded bank-info-alert bg-amber-100">
+                            <pre className="table w-full table-fixed">
                               {bankInfo.account_info}
                             </pre>
                           </div>
@@ -2615,8 +2615,8 @@ function CheakoutPage() {
                       className="w-full"
                     >
                       <div className="w-full h-[50px] flex justify-center items-center">
-                        <div className="green-btn rounded">
-                          <span className="text-sm text-white font-semibold">
+                        <div className="rounded green-btn">
+                          <span className="text-sm font-semibold text-white">
                             {langCntnt && langCntnt.Place_Order_Now}
                           </span>
                         </div>

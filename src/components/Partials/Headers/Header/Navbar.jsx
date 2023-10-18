@@ -50,17 +50,17 @@ export default function Navbar({ className }) {
         className || ""
       }`}
     >
-      <div className="container-x mx-auto h-full">
-        <div className="w-full h-full relative">
-          <div className="w-full h-full flex justify-between items-center">
-            <div className="category-and-nav flex xl:space-x-7 space-x-3 items-center">
+      <div className="h-full mx-auto container-x">
+        <div className="relative w-full h-full">
+          <div className="flex items-center justify-between w-full h-full">
+            <div className="flex items-center space-x-3 category-and-nav xl:space-x-7">
               <div className="category w-[270px] h-[53px] bg-white px-5 rounded-t-md mt-[6px] relative">
                 <button
                   onClick={handler}
                   type="button"
-                  className="w-full h-full flex justify-between items-center"
+                  className="flex items-center justify-between w-full h-full"
                 >
-                  <div className="flex space-x-3 items-center">
+                  <div className="flex items-center space-x-3">
                     <span>
                       <svg
                         width="14"
@@ -103,12 +103,12 @@ export default function Navbar({ className }) {
                     categoryToggle ? "block" : "hidden"
                   }`}
                 >
-                  <ul className="categories-list relative">
+                  <ul className="relative categories-list">
                     {categoryList &&
                       categoryList.map((item) => (
                         <li
                           key={item.id}
-                          className="category-item transition-all duration-300 ease-in-out"
+                          className="transition-all duration-300 ease-in-out category-item"
                         >
                           <Link
                             href={{
@@ -118,7 +118,7 @@ export default function Navbar({ className }) {
                             passHref
                           >
                             <a rel="noopener noreferrer">
-                              <div className=" flex justify-between items-center px-5 h-10 cursor-pointer">
+                              <div className="flex items-center justify-between h-10 px-5 cursor-pointer ">
                                 <div className="flex items-center space-x-6">
                                   <span className="icon">
                                     <FontAwesomeCom
@@ -126,7 +126,7 @@ export default function Navbar({ className }) {
                                       icon={item.icon}
                                     />
                                   </span>
-                                  <span className="name text-xs font-400">
+                                  <span className="text-xs name font-400">
                                     {item.name}
                                   </span>
                                 </div>
@@ -183,7 +183,7 @@ export default function Navbar({ className }) {
                                       passHref
                                     >
                                       <a rel="noopener noreferrer">
-                                        <div className=" flex justify-between items-center px-5 h-10 transition-all duration-300 ease-in-out cursor-pointer">
+                                        <div className="flex items-center justify-between h-10 px-5 transition-all duration-300 ease-in-out cursor-pointer ">
                                           <div>
                                             <span className="text-xs font-400">
                                               {subItem.name}
@@ -248,7 +248,7 @@ export default function Navbar({ className }) {
                                                   passHref
                                                 >
                                                   <a rel="noopener noreferrer">
-                                                    <div className=" flex justify-between items-center px-5 h-10 transition-all duration-300 ease-in-out cursor-pointer">
+                                                    <div className="flex items-center justify-between h-10 px-5 transition-all duration-300 ease-in-out cursor-pointer ">
                                                       <div>
                                                         <span className="text-xs font-400">
                                                           {subsubitem.name}
@@ -272,9 +272,9 @@ export default function Navbar({ className }) {
                 </div>
               </div>
               <div className="nav">
-                <ul className="nav-wrapper flex xl:space-x-10 space-x-5">
+                <ul className="flex space-x-5 nav-wrapper xl:space-x-10">
                   {/* <li>
-                    <span className="flex items-center text-sm font-600 cursor-pointer ">
+                    <span className="flex items-center text-sm cursor-pointer font-600 ">
                       <span>{langCntnt && langCntnt.Shop}</span>
                       <span className="ml-1.5 ">
                         <Arrow className="fill-current" />
@@ -323,7 +323,7 @@ export default function Navbar({ className }) {
                                             passHref
                                           >
                                             <a rel="noopener noreferrer">
-                                              <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer cursor-pointer">
+                                              <span className="text-sm border-b border-transparent cursor-pointer text-qgray font-400 hover:border-qgreen hover:text-qgreen">
                                                 {subItem.sub_category &&
                                                   subItem.sub_category.name}
                                               </span>
@@ -351,7 +351,7 @@ export default function Navbar({ className }) {
                             <div className="flex flex-col justify-between">
                               <div>
                                 <div className=" mb-[10px]">
-                                  <span className="text-qblack uppercase text-xs font-semibold">
+                                  <span className="text-xs font-semibold uppercase text-qblack">
                                     {megaMenuBanner.title_one}
                                   </span>
                                 </div>
@@ -372,7 +372,7 @@ export default function Navbar({ className }) {
                                   passHref
                                 >
                                   <a rel="noopener noreferrer">
-                                    <div className="cursor-pointer w-full relative">
+                                    <div className="relative w-full cursor-pointer">
                                       <div className="inline-flex  space-x-1.5 items-center relative z-20">
                                         <span className="text-sm text-qblack font-medium leading-[30px]">
                                           {langCntnt && langCntnt.Shop_Now}
@@ -421,7 +421,7 @@ export default function Navbar({ className }) {
                     // <li>
                     //   <Link href="/sellers" passHref>
                     //     <a rel="noopener noreferrer">
-                    //       <span className="flex items-center text-sm font-600 cursor-pointer ">
+                    //       <span className="flex items-center text-sm cursor-pointer font-600 ">
                     //         <span>{langCntnt && langCntnt.Sellers}</span>
                     //       </span>
                     //     </a>
@@ -432,7 +432,7 @@ export default function Navbar({ className }) {
                   {/*<li>*/}
                   {/*  <Link href="/blogs" passHref>*/}
                   {/*    <a rel="noopener noreferrer">*/}
-                  {/*      <span className="flex items-center text-sm font-600 cursor-pointer ">*/}
+                  {/*      <span className="flex items-center text-sm cursor-pointer font-600 ">*/}
                   {/*        <span>Brands</span>*/}
                   {/*      </span>*/}
                   {/*    </a>*/}
@@ -442,7 +442,7 @@ export default function Navbar({ className }) {
                   {/* <li>
                     <Link href="/blogs" passHref>
                       <a rel="noopener noreferrer">
-                        <span className="flex items-center text-sm font-600 cursor-pointer capitalize">
+                        <span className="flex items-center text-sm capitalize cursor-pointer font-600">
                           <span>{langCntnt && langCntnt.blogs}</span>
                         </span>
                       </a>
@@ -451,7 +451,7 @@ export default function Navbar({ className }) {
                   {/*<li>*/}
                   {/*  <Link href="/contact" passHref>*/}
                   {/*    <a rel="noopener noreferrer">*/}
-                  {/*      <span className="flex items-center text-sm font-600 cursor-pointer ">*/}
+                  {/*      <span className="flex items-center text-sm cursor-pointer font-600 ">*/}
                   {/*        <span>{langCntnt && langCntnt.Contact}</span>*/}
                   {/*      </span>*/}
                   {/*    </a>*/}
@@ -460,7 +460,7 @@ export default function Navbar({ className }) {
 
                   {/* pages dropdown */}
                   {/* <li className="relative"> */}
-                  {/* <span className="flex items-center text-sm font-600 cursor-pointer ">
+                  {/* <span className="flex items-center text-sm cursor-pointer font-600 ">
                       <span>{langCntnt && langCntnt.Pages}</span>
                       <span className="ml-1.5 ">
                         <Arrow className="fill-current" />
@@ -468,19 +468,19 @@ export default function Navbar({ className }) {
                     </span> */}
                   {/* <div className="sub-menu w-[280px] absolute left-0 top-[60px]">
                       <div
-                        className="w-full bg-white rounded flex justify-between items-center "
+                        className="flex items-center justify-between w-full bg-white rounded "
                         style={{
                           boxShadow: "0px 15px 50px 0px rgba(0, 0, 0, 0.14)",
                         }}
                       >
-                        <div className="categories-wrapper w-full h-full p-5">
+                        <div className="w-full h-full p-5 categories-wrapper">
                           <div>
                             <div className="category-items">
                               <ul className="flex flex-col space-y-2"> */}
                   {/* <li>
                                   <Link href="/privacy-policy" passHref>
                                     <a rel="noopener noreferrer">
-                                      <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                                      <span className="text-sm border-b border-transparent cursor-pointer text-qgray font-400 hover:border-qgreen hover:text-qgreen">
                                         {langCntnt && langCntnt.Privacy_Policy}
                                       </span>
                                     </a>
@@ -489,7 +489,7 @@ export default function Navbar({ className }) {
                                 <li>
                                   <Link href="/terms-condition" passHref>
                                     <a rel="noopener noreferrer">
-                                      <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                                      <span className="text-sm border-b border-transparent cursor-pointer text-qgray font-400 hover:border-qgreen hover:text-qgreen">
                                         {langCntnt &&
                                           langCntnt.Term_and_Conditions}
                                       </span>
@@ -504,7 +504,7 @@ export default function Navbar({ className }) {
                     //     passHref
                     //   >
                     //     <a rel="noopener noreferrer">
-                    //       <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                    //       <span className="text-sm border-b border-transparent cursor-pointer text-qgray font-400 hover:border-qgreen hover:text-qgreen">
                     //         {langCntnt &&
                     //           langCntnt.Seller_terms_and_conditions}
                     //       </span>
@@ -516,7 +516,7 @@ export default function Navbar({ className }) {
                   {/* <li>
                                   <Link href="/faq" passHref>
                                     <a rel="noopener noreferrer">
-                                      <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                                      <span className="text-sm border-b border-transparent cursor-pointer text-qgray font-400 hover:border-qgreen hover:text-qgreen">
                                         {langCntnt && langCntnt.FAQ}
                                       </span>
                                     </a>
@@ -533,7 +533,7 @@ export default function Navbar({ className }) {
                                           passHref
                                         >
                                           <a rel="noopener noreferrer">
-                                            <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                                            <span className="text-sm border-b border-transparent cursor-pointer text-qgray font-400 hover:border-qgreen hover:text-qgreen">
                                               {item.page_name}
                                             </span>
                                           </a>
@@ -543,14 +543,14 @@ export default function Navbar({ className }) {
                                   ))} */}
                   {/* <li>
                                   <Link href="#">
-                                    <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                                    <span className="text-sm border-b border-transparent cursor-pointer text-qgray font-400 hover:border-qgreen hover:text-qgreen">
                                       Shop Category Icon
                                     </span>
                                   </Link>
                                 </li>
                                 <li>
                                   <Link href="#">
-                                    <span className="text-qgray text-sm font-400 border-b border-transparent hover:border-qgreen hover:text-qgreen cursor-pointer">
+                                    <span className="text-sm border-b border-transparent cursor-pointer text-qgray font-400 hover:border-qgreen hover:text-qgreen">
                                       Shop List View
                                     </span>
                                   </Link>
@@ -573,8 +573,14 @@ export default function Navbar({ className }) {
                       passHref
                     >
                       <a rel="noopener noreferrer">
-                        <span className="flex items-center text-sm font-600 cursor-pointer ">
-                          Two Wheelers
+                        <span className="flex items-center text-sm cursor-pointer font-600 ">
+                          <Image
+                            src="/assets/images/bike.png"
+                            width={35}
+                            height={24}
+                            alt="car"
+                          />
+                          Wheelers
                         </span>
                       </a>
                     </Link>
@@ -589,8 +595,14 @@ export default function Navbar({ className }) {
                       passHref
                     >
                       <a rel="noopener noreferrer">
-                        <span className="flex items-center text-sm font-600 cursor-pointer ">
-                          Three Wheelers
+                        <span className="flex items-center text-sm cursor-pointer font-600 ">
+                          <Image
+                            src="/assets/images/00.png"
+                            width={35}
+                            height={24}
+                            alt="car"
+                          />
+                          Wheelers
                         </span>
                       </a>
                     </Link>
@@ -605,8 +617,14 @@ export default function Navbar({ className }) {
                       passHref
                     >
                       <a rel="noopener noreferrer">
-                        <span className="flex items-center text-sm font-600 cursor-pointer ">
-                          Four Wheelers
+                        <span className="flex items-center text-sm cursor-pointer font-600 ">
+                          <Image
+                            src="/assets/images/suv.png"
+                            width={35}
+                            height={24}
+                            alt="car"
+                          />
+                          Wheelers
                         </span>
                       </a>
                     </Link>
@@ -621,15 +639,15 @@ export default function Navbar({ className }) {
                       passHref
                     >
                       <a rel="noopener noreferrer">
-                        <span className="flex items-center text-sm font-600 cursor-pointer ">
+                        <span className="flex items-center text-sm cursor-pointer font-600 ">
                           <div className="flex items-start gap-2">
                             P
                             <Image
-                              src="/assets/images/rolls-royce.png"
+                              src="/assets/images/RR.png"
                               width={35}
                               height={24}
                               alt="car"
-                            />{" "}
+                            />
                             spares
                           </div>
                         </span>
@@ -640,7 +658,7 @@ export default function Navbar({ className }) {
                   <li>
                     <Link href="/about" passHref>
                       <a rel="noopener noreferrer">
-                        <span className="flex items-center text-sm font-600 cursor-pointer ">
+                        <span className="flex items-center text-sm cursor-pointer font-600 ">
                           <span>{langCntnt && langCntnt.About}</span>
                         </span>
                       </a>
@@ -650,10 +668,10 @@ export default function Navbar({ className }) {
               </div>
             </div>
             {/* tracking order link  */}
-            <div className="flex xl:space-x-7 space-x-3 items-center">
+            <div className="flex items-center space-x-3 xl:space-x-7">
               <Link href="/tracking-order" passHref>
                 <a rel="noopener noreferrer">
-                  <span className="flex items-center text-sm text-white font-600 cursor-pointer">
+                  <span className="flex items-center text-sm text-white cursor-pointer font-600">
                     {langCntnt && langCntnt.Track_Order}
                   </span>
                 </a>
@@ -664,10 +682,10 @@ export default function Navbar({ className }) {
               <>
                 {/* {auth() && parseInt(auth().is_vendor) === 1 ? 
                 (
-                  <div className="become-seller-btn rounded overflow-hidden">
+                  <div className="overflow-hidden rounded become-seller-btn">
                     <button onClick={switchDashboardHandler} type="button">
                       <div className=" w-[174px] h-[52px] flex justify-center items-center cursor-pointer ">
-                        <div className="flex space-x-2 items-center">
+                        <div className="flex items-center space-x-2">
                           <span className="text-[15px] font-600">
                             {langCntnt && langCntnt.Switch_Dashboard}
                           </span>
@@ -676,11 +694,11 @@ export default function Navbar({ className }) {
                     </button>
                   </div>
                 ) : (
-                  <div className="become-seller-btn rounded overflow-hidden">
+                  <div className="overflow-hidden rounded become-seller-btn">
                     <Link href={auth() ? "/become-seller" : "/login"} passHref>
                       <a rel="noopener noreferrer">
                         <div className=" w-[174px] h-[52px] flex justify-center items-center cursor-pointer ">
-                          <div className="flex space-x-2 items-center">
+                          <div className="flex items-center space-x-2">
                             <span className="text-[15px] font-600">
                               {langCntnt && langCntnt.Seller_Login}
                             </span>

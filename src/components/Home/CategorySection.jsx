@@ -6,6 +6,7 @@ import Slider from "react-slick";
 function CategorySection({
   sectionTitle,
   categories,
+  productCategories,
   adsOne,
   adsTwo,
   adsThree,
@@ -50,21 +51,21 @@ function CategorySection({
       },
     ],
   };
-
+  console.log(productCategories);
   return (
-    <div className="category-section-wrapper w-full bg-white">
+    <div className="w-full bg-white category-section-wrapper">
       <div className="container-x mx-auto py-[60px]">
         <div className="mb-[60px]">
-          <div className="section-title flex justify-between items-center mb-5">
+          <div className="flex items-center justify-between mb-5 section-title">
             <div>
-              <h1 className="sm:text-3xl text-xl font-600 text-qblacktext">
+              <h1 className="text-xl sm:text-3xl font-600 text-qblacktext">
                 {sectionTitle}
               </h1>
             </div>
             <div className="view-more-btn">
               <Link href={"/products"} passHref>
                 <a rel="noopener noreferrer">
-                  <div className="flex space-x-2 items-center cursor-pointer">
+                  <div className="flex items-center space-x-2 cursor-pointer">
                     <p className="text-base font-600 text-qblack">View All</p>
                     <span className="animate-right-dir">
                       <svg
@@ -99,7 +100,7 @@ function CategorySection({
                     data-aos="fade-left"
                     data-aos-delay={i + "00"}
                     key={i}
-                    className="item w-full cursor-pointer group"
+                    className="w-full cursor-pointer item group"
                   >
                     <Link
                       href={{
@@ -110,7 +111,7 @@ function CategorySection({
                     >
                       <a rel="noopener noreferrer">
                         <div className="w-full h-[192px] relative rounded bg-qgreenlow flex justify-center items-center">
-                          <div className="w-full h-full relative transform scale-100 group-hover:scale-110 transition duration-300 ease-in-out">
+                          <div className="relative w-full h-full transition duration-300 ease-in-out transform scale-100 group-hover:scale-110">
                             <Image
                               layout="fill"
                               objectFit="scale-down"
@@ -121,7 +122,7 @@ function CategorySection({
                             />
                           </div>
                         </div>
-                        <p className="text-lg text-qgray text-center mt-5 group-hover:text-qgreen transition duration-300 ease-in-out">
+                        <p className="mt-5 text-lg text-center transition duration-300 ease-in-out text-qgray group-hover:text-qgreen">
                           {item.name}
                         </p>
                       </a>
@@ -133,16 +134,16 @@ function CategorySection({
         </div>
         {/* two wheelers section */}
         <div className="my-[60px]">
-          <div className="section-title flex justify-between items-center mb-5">
+          <div className="flex items-center justify-between mb-5 section-title">
             <div>
-              <h1 className="sm:text-3xl text-xl font-600 text-qblacktext">
+              <h1 className="text-xl sm:text-3xl font-600 text-qblacktext">
                 Two Wheelers
               </h1>
             </div>
             <div className="view-more-btn">
               <Link href={"/products"} passHref>
                 <a rel="noopener noreferrer">
-                  <div className="flex space-x-2 items-center cursor-pointer">
+                  <div className="flex items-center space-x-2 cursor-pointer">
                     <p className="text-base font-600 text-qblack">View All</p>
                     <span className="animate-right-dir">
                       <svg
@@ -169,15 +170,15 @@ function CategorySection({
           </div>
           {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]"> */}
           <Slider {...settings}>
-            {categories.length > 0 &&
-              categories
+            {productCategories[0].active_sub_categories.length > 0 &&
+              productCategories[0].active_sub_categories
                 // .slice(0, categories.length > 6 ? 6 : categories.length)
                 .map((item, i) => (
                   <div
                     data-aos="fade-left"
                     data-aos-delay={i + "00"}
                     key={i}
-                    className="item w-full cursor-pointer group"
+                    className="w-full cursor-pointer item group"
                   >
                     <Link
                       href={{
@@ -188,7 +189,7 @@ function CategorySection({
                     >
                       <a rel="noopener noreferrer">
                         <div className="w-full h-[192px] relative rounded bg-qgreenlow flex justify-center items-center">
-                          <div className="w-full h-full relative transform scale-100 group-hover:scale-110 transition duration-300 ease-in-out">
+                          <div className="relative w-full h-full transition duration-300 ease-in-out transform scale-100 group-hover:scale-110">
                             <Image
                               layout="fill"
                               objectFit="scale-down"
@@ -199,7 +200,7 @@ function CategorySection({
                             />
                           </div>
                         </div>
-                        <p className="text-lg text-qgray text-center mt-5 group-hover:text-qgreen transition duration-300 ease-in-out">
+                        <p className="mt-5 text-lg text-center transition duration-300 ease-in-out text-qgray group-hover:text-qgreen">
                           {item.name}
                         </p>
                       </a>
@@ -211,16 +212,16 @@ function CategorySection({
         </div>
         {/* three wheelers section */}
         <div className="my-[60px]">
-          <div className="section-title flex justify-between items-center mb-5">
+          <div className="flex items-center justify-between mb-5 section-title">
             <div>
-              <h1 className="sm:text-3xl text-xl font-600 text-qblacktext">
+              <h1 className="text-xl sm:text-3xl font-600 text-qblacktext">
                 Three Wheelers
               </h1>
             </div>
             <div className="view-more-btn">
               <Link href={"/products"} passHref>
                 <a rel="noopener noreferrer">
-                  <div className="flex space-x-2 items-center cursor-pointer">
+                  <div className="flex items-center space-x-2 cursor-pointer">
                     <p className="text-base font-600 text-qblack">View All</p>
                     <span className="animate-right-dir">
                       <svg
@@ -247,15 +248,15 @@ function CategorySection({
           </div>
           {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]"> */}
           <Slider {...settings}>
-            {categories.length > 0 &&
-              categories
+            {productCategories[1].active_sub_categories.length > 0 &&
+              productCategories[1].active_sub_categories
                 // .slice(0, categories.length > 6 ? 6 : categories.length)
                 .map((item, i) => (
                   <div
                     data-aos="fade-left"
                     data-aos-delay={i + "00"}
                     key={i}
-                    className="item w-full cursor-pointer group"
+                    className="w-full cursor-pointer item group"
                   >
                     <Link
                       href={{
@@ -266,7 +267,7 @@ function CategorySection({
                     >
                       <a rel="noopener noreferrer">
                         <div className="w-full h-[192px] relative rounded bg-qgreenlow flex justify-center items-center">
-                          <div className="w-full h-full relative transform scale-100 group-hover:scale-110 transition duration-300 ease-in-out">
+                          <div className="relative w-full h-full transition duration-300 ease-in-out transform scale-100 group-hover:scale-110">
                             <Image
                               layout="fill"
                               objectFit="scale-down"
@@ -277,7 +278,7 @@ function CategorySection({
                             />
                           </div>
                         </div>
-                        <p className="text-lg text-qgray text-center mt-5 group-hover:text-qgreen transition duration-300 ease-in-out">
+                        <p className="mt-5 text-lg text-center transition duration-300 ease-in-out text-qgray group-hover:text-qgreen">
                           {item.name}
                         </p>
                       </a>
@@ -289,16 +290,16 @@ function CategorySection({
         </div>
         {/* four wheelers section */}
         <div className="my-[60px]">
-          <div className="section-title flex justify-between items-center mb-5">
+          <div className="flex items-center justify-between mb-5 section-title">
             <div>
-              <h1 className="sm:text-3xl text-xl font-600 text-qblacktext">
+              <h1 className="text-xl sm:text-3xl font-600 text-qblacktext">
                 Four Wheelers
               </h1>
             </div>
             <div className="view-more-btn">
               <Link href={"/products"} passHref>
                 <a rel="noopener noreferrer">
-                  <div className="flex space-x-2 items-center cursor-pointer">
+                  <div className="flex items-center space-x-2 cursor-pointer">
                     <p className="text-base font-600 text-qblack">View All</p>
                     <span className="animate-right-dir">
                       <svg
@@ -325,15 +326,15 @@ function CategorySection({
           </div>
           {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]"> */}
           <Slider {...settings}>
-            {categories.length > 0 &&
-              categories
+            {productCategories[2].active_sub_categories.length > 0 &&
+              productCategories[2].active_sub_categories
                 // .slice(0, categories.length > 6 ? 6 : categories.length)
                 .map((item, i) => (
                   <div
                     data-aos="fade-left"
                     data-aos-delay={i + "00"}
                     key={i}
-                    className="item w-full cursor-pointer group"
+                    className="w-full cursor-pointer item group"
                   >
                     <Link
                       href={{
@@ -344,7 +345,7 @@ function CategorySection({
                     >
                       <a rel="noopener noreferrer">
                         <div className="w-full h-[192px] relative rounded bg-qgreenlow flex justify-center items-center">
-                          <div className="w-full h-full relative transform scale-100 group-hover:scale-110 transition duration-300 ease-in-out">
+                          <div className="relative w-full h-full transition duration-300 ease-in-out transform scale-100 group-hover:scale-110">
                             <Image
                               layout="fill"
                               objectFit="scale-down"
@@ -355,7 +356,7 @@ function CategorySection({
                             />
                           </div>
                         </div>
-                        <p className="text-lg text-qgray text-center mt-5 group-hover:text-qgreen transition duration-300 ease-in-out">
+                        <p className="mt-5 text-lg text-center transition duration-300 ease-in-out text-qgray group-hover:text-qgreen">
                           {item.name}
                         </p>
                       </a>
@@ -366,7 +367,7 @@ function CategorySection({
           {/* </div> */}
         </div>
         {/* <div className="grid lg:grid-cols-3 grid-cols-1 gap-[30px]">
-          <div data-aos="fade-right" className="item w-full rounded">
+          <div data-aos="fade-right" className="w-full rounded item">
             <div
               className="w-full flex flex-col justify-between  h-[453px] rounded"
               style={{
@@ -376,7 +377,7 @@ function CategorySection({
               }}
             >
               <div className="px-[30px] pt-[30px]">
-                <span className="text-sm text-qblack mb-2 inline-block uppercase font-medium">
+                <span className="inline-block mb-2 text-sm font-medium uppercase text-qblack">
                   {adsOne.title_one}
                 </span>
                 <h1 className="text-[34px] leading-[38px] font-semibold text-qblack mb-[20px] w-[277px]">
@@ -407,7 +408,7 @@ function CategorySection({
               </div>
             </div>
           </div>
-          <div data-aos="fade-up" className="item w-full">
+          <div data-aos="fade-up" className="w-full item">
             <div
               className="w-full flex flex-col-reverse justify-between  h-[453px] rounded"
               style={{
@@ -417,7 +418,7 @@ function CategorySection({
               }}
             >
               <div className="px-[30px] pb-[30px]">
-                <span className="text-sm text-qblack mb-2 inline-block uppercase font-medium">
+                <span className="inline-block mb-2 text-sm font-medium uppercase text-qblack">
                   {adsTwo.title_one}
                 </span>
                 <h1 className="text-[34px] leading-[38px] font-semibold text-qblack mb-[20px] w-[277px]">
@@ -448,7 +449,7 @@ function CategorySection({
               </div>
             </div>
           </div>
-          <div data-aos="fade-left" className="item w-full">
+          <div data-aos="fade-left" className="w-full item">
             <div
               className="w-full flex flex-col justify-between  h-[453px] rounded"
               style={{
@@ -458,7 +459,7 @@ function CategorySection({
               }}
             >
               <div className="px-[30px] pt-[30px]">
-                <span className="text-sm text-qblack mb-2 inline-block uppercase font-medium">
+                <span className="inline-block mb-2 text-sm font-medium uppercase text-qblack">
                   {adsThree.title_one}
                 </span>
                 <h1 className="text-[34px] leading-[38px] font-semibold text-qblack mb-[20px] w-[277px]">

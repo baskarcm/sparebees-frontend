@@ -21,12 +21,12 @@ import { useDispatch } from "react-redux";
 import isAuth from "../../../../Middleware/isAuth";
 import apiRequest from "../../../../utils/apiRequest";
 import auth from "../../../../utils/auth";
+import languageModel from "../../../../utils/languageModel";
 import { fetchWishlist } from "../../../store/wishlistData";
 import Multivendor from "../../Shared/Multivendor";
 import ProfileTab from "./tabs/ProfileTab";
 import ReviewTab from "./tabs/ReviewTab";
 import WishlistTab from "./tabs/WishlistTab";
-import languageModel from "../../../../utils/languageModel";
 
 function Profile() {
   const router = useRouter();
@@ -137,12 +137,12 @@ function Profile() {
       const dashboardUrl = baseURL + "seller/dashboard";
       router.push(dashboardUrl);
     }
-  }, [switchDashboard]);
+  }, [switchDashboard, router]);
   const checkSellerAndVendor =
     Multivendor() === 1 && dashBoardData && dashBoardData.is_seller;
   return (
-    <div className="profile-page-wrapper w-full bg-white">
-      <div className="container-x mx-auto">
+    <div className="w-full bg-white profile-page-wrapper">
+      <div className="mx-auto container-x">
         <div className="w-full py-10">
           <BreadcrumbCom
             paths={[
@@ -151,16 +151,16 @@ function Profile() {
             ]}
           />
           <div
-            className="w-full bg-white xl:p-10 p-5 rounded"
+            className="w-full p-5 bg-white rounded xl:p-10"
             style={{ boxShadow: "rgba(0, 0, 0, 0.05) 0px 15px 64px" }}
           >
-            <div className="title-area w-full flex justify-between items-center">
+            <div className="flex items-center justify-between w-full title-area">
               <h1 className="text-[22px] font-bold text-qblack">
                 {langCntnt && langCntnt.Your_Dashboard}
               </h1>
               {checkSellerAndVendor && (
-                <div className="switch-dashboard flex space-x-3 items-center">
-                  <p className="text-qgray text-base">
+                <div className="flex items-center space-x-3 switch-dashboard">
+                  <p className="text-base text-qgray">
                     {langCntnt && langCntnt.Switch_Dashboard}
                   </p>
                   <button
@@ -177,16 +177,16 @@ function Profile() {
                 </div>
               )}
             </div>
-            <div className="profile-wrapper w-full mt-8 xl:flex xl:space-x-10">
+            <div className="w-full mt-8 profile-wrapper xl:flex xl:space-x-10">
               <div className="xl:w-[236px] w-full xl:min-h-[600px] xl:border-r border-[rgba(0, 0, 0, 0.1)] mb-10 xl:mb-0">
-                <div className="flex xl:flex-col flex-row xl:space-y-10 flex-wrap gap-3 xl:gap-0">
+                <div className="flex flex-row flex-wrap gap-3 xl:flex-col xl:space-y-10 xl:gap-0">
                   <div className="item group">
                     <Link href="/profile#dashboard">
-                      <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">
+                      <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">
                         <span>
                           <IcoDashboard />
                         </span>
-                        <span className=" font-normal text-base capitalize">
+                        <span className="text-base font-normal capitalize ">
                           {langCntnt && langCntnt.dashboard}
                         </span>
                       </div>
@@ -194,11 +194,11 @@ function Profile() {
                   </div>
                   <div className="item group">
                     <Link href="/profile#profile">
-                      <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">
+                      <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">
                         <span>
                           <IcoPeople />
                         </span>
-                        <span className=" font-normal text-base capitalize">
+                        <span className="text-base font-normal capitalize ">
                           {langCntnt && langCntnt.Personal_Info}
                         </span>
                       </div>
@@ -207,11 +207,11 @@ function Profile() {
 
                   {/*<div className="item group">*/}
                   {/*  <Link href="/profile#payment">*/}
-                  {/*    <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">*/}
+                  {/*    <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">*/}
                   {/*      <span>*/}
                   {/*        <IcoPayment />*/}
                   {/*      </span>*/}
-                  {/*      <span className=" font-normal text-base capitalize">*/}
+                  {/*      <span className="text-base font-normal capitalize ">*/}
                   {/*        Payment Method*/}
                   {/*      </span>*/}
                   {/*    </div>*/}
@@ -219,11 +219,11 @@ function Profile() {
                   {/*</div>*/}
                   <div className="item group">
                     <Link href="/profile#order">
-                      <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">
+                      <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">
                         <span>
                           <IcoCart />
                         </span>
-                        <span className=" font-normal text-base capitalize">
+                        <span className="text-base font-normal capitalize ">
                           {langCntnt && langCntnt.Order}
                         </span>
                       </div>
@@ -231,11 +231,11 @@ function Profile() {
                   </div>
                   <div className="item group">
                     <Link href="/profile#wishlist">
-                      <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">
+                      <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">
                         <span>
                           <IcoLove />
                         </span>
-                        <span className=" font-normal text-base capitalize">
+                        <span className="text-base font-normal capitalize ">
                           {langCntnt && langCntnt.Wishlist}
                         </span>
                       </div>
@@ -243,11 +243,11 @@ function Profile() {
                   </div>
                   <div className="item group">
                     <Link href="/profile#address">
-                      <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">
+                      <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">
                         <span>
                           <IcoAdress />
                         </span>
-                        <span className=" font-normal text-base capitalize">
+                        <span className="text-base font-normal capitalize ">
                           {langCntnt && langCntnt.Address}
                         </span>
                       </div>
@@ -255,11 +255,11 @@ function Profile() {
                   </div>
                   <div className="item group">
                     <Link href="/profile#review">
-                      <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">
+                      <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">
                         <span>
                           <IcoReviewHand />
                         </span>
-                        <span className=" font-normal text-base capitalize">
+                        <span className="text-base font-normal capitalize ">
                           {langCntnt && langCntnt.Reviews}
                         </span>
                       </div>
@@ -267,11 +267,11 @@ function Profile() {
                   </div>
                   <div className="item group">
                     <Link href="/profile#password">
-                      <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">
+                      <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">
                         <span>
                           <IcoPassword />
                         </span>
-                        <span className=" font-normal text-base capitalize">
+                        <span className="text-base font-normal capitalize ">
                           {langCntnt && langCntnt.Change_Password}
                         </span>
                       </div>
@@ -279,11 +279,11 @@ function Profile() {
                   </div>
                   {/*<div className="item group">*/}
                   {/*  <Link href="/profile#support">*/}
-                  {/*    <div className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer">*/}
+                  {/*    <div className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen">*/}
                   {/*      <span>*/}
                   {/*        <IcoSupport />*/}
                   {/*      </span>*/}
-                  {/*      <span className=" font-normal text-base capitalize">*/}
+                  {/*      <span className="text-base font-normal capitalize ">*/}
                   {/*        Support Ticket*/}
                   {/*      </span>*/}
                   {/*    </div>*/}
@@ -292,12 +292,12 @@ function Profile() {
                   <div className="item group">
                     <div
                       onClick={logout}
-                      className="flex space-x-3 items-center text-qgray hover:text-qgreen cursor-pointer"
+                      className="flex items-center space-x-3 cursor-pointer text-qgray hover:text-qgreen"
                     >
                       <span>
                         <IcoLogout />
                       </span>
-                      <span className=" font-normal text-base capitalize">
+                      <span className="text-base font-normal capitalize ">
                         {langCntnt && langCntnt.Logout}
                       </span>
                     </div>
@@ -305,7 +305,7 @@ function Profile() {
                 </div>
               </div>
               <div className="flex-1">
-                <div className="item-body dashboard-wrapper w-full">
+                <div className="w-full item-body dashboard-wrapper">
                   {active === "dashboard" ? (
                     <>
                       {dashBoardData && (

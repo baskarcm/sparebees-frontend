@@ -1,10 +1,8 @@
 // import Image from "next/image";
 // import Link from "next/link";
-import FontAwesomeCom from "../Helpers/icons/FontAwesomeCom";
-import Link from "next/link";
 import Image from "next/image";
 import SimpleSlider from "../Helpers/SliderCom";
-import ShopNowBtn from "../Helpers/Buttons/ShopNowBtn";
+import FontAwesomeCom from "../Helpers/icons/FontAwesomeCom";
 export default function Banner({ className, sliders = [], services = [] }) {
   const settings = {
     dots: true,
@@ -23,18 +21,26 @@ export default function Banner({ className, sliders = [], services = [] }) {
         className={`w-full ${className || ""}`}
       >
         <div className="container-x mx-auto h-full">
-          <div className="main-wrapper w-full h-full pt-10">
+          <div className="main-wrapper w-full h-full">
             {/*    slider area*/}
-            <div className="hero-slider-wrapper xl:h-[646px] mb-20 xl:mb-0  w-full">
+            <div className="hero-slider-wrapper xl:h-[300px] mb-20 xl:mb-0  w-full">
               <SimpleSlider settings={settings}>
                 {sliders.length > 0 &&
                   sliders.map((item, i) => (
                     <div
                       key={i}
-                      className="item flex items-center w-full xl:h-[576px] h-fit"
+                      className="item flex items-center w-full xl:h-[252px] h-fit"
                     >
+                      <div className=" w-full mt-5 xl:mt-0 xl:h-full relative">
+                        <Image
+                          layout="fill"
+                          objectFit="contain"
+                          src={process.env.NEXT_PUBLIC_BASE_URL + item.image}
+                          alt="banner"
+                        />
+                      </div>
                       <div className="w-full h-full xl:flex items-center">
-                        <div className="flex-1">
+                        {/* <div className="flex-1">
                           <p className="md:text-[34px] text-[20px] font-medium primary-text">
                             {item.title_one}
                           </p>
@@ -56,15 +62,8 @@ export default function Banner({ className, sliders = [], services = [] }) {
                               />
                             </a>
                           </Link>
-                        </div>
-                        <div className="xl:w-[626px] w-full mt-5 xl:mt-0 xl:h-full h-[400px] relative">
-                          <Image
-                            layout="fill"
-                            objectFit="contain"
-                            src={process.env.NEXT_PUBLIC_BASE_URL + item.image}
-                            alt="banner"
-                          />
-                        </div>
+                        </div> */}
+
                       </div>
                     </div>
                   ))}

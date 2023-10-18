@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
-import Checkbox from "../Helpers/Checkbox";
-import { useEffect, useState } from "react";
 import languageModel from "../../../utils/languageModel";
+import Checkbox from "../Helpers/Checkbox";
 export default function ProductsFilter({
   categories,
   categoryHandler,
@@ -36,7 +36,7 @@ export default function ProductsFilter({
               {langCntnt && langCntnt.Product_categories}
             </h1>
           </div>
-          <div className="filter-items">
+          <div className="filter-items max-h-60 overflow-auto">
             <ul>
               {categories &&
                 categories.length > 0 &&
@@ -94,7 +94,7 @@ export default function ProductsFilter({
               {langCntnt && langCntnt.Brands}
             </h1>
           </div>
-          <div className="filter-items">
+          <div className="filter-items max-h-60 overflow-auto">
             <ul>
               {brands &&
                 brands.length > 0 &&

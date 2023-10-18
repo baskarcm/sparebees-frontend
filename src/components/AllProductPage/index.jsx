@@ -203,7 +203,7 @@ export default function AllProductPage({ response, sellerInfo }) {
           ...response.data.products.data.map((item) => parseInt(item.price))
         ),
     });
-  }, [response.data]);
+  }, [response.data, router]);
   useEffect(() => {
     if (response.data) {
       const min =
@@ -282,6 +282,7 @@ export default function AllProductPage({ response, sellerInfo }) {
       return;
     }
   }, [
+    sellerInfo,
     selectedVarientFilterItem,
     selectedCategoryFilterItem,
     selectedBrandsFilterItem,
@@ -347,7 +348,7 @@ export default function AllProductPage({ response, sellerInfo }) {
     <>
       <Layout childrenClasses="pt-0 pb-0">
         <div className="products-page-wrapper w-full bg-white pt-[30px]">
-          <div className="container-x mx-auto">
+          <div className="mx-auto container-x">
             {sellerInfo && (
               <div
                 data-aos="fade-right"
@@ -367,9 +368,9 @@ export default function AllProductPage({ response, sellerInfo }) {
                 {/*  </span>*/}
                 {/*</div>*/}
 
-                <div className="saller-text-details  w-72">
+                <div className="saller-text-details w-72">
                   <ul>
-                    <li className="text-black flex space-x-5 items-center leading-9 text-base font-normal">
+                    <li className="flex items-center space-x-5 text-base font-normal leading-9 text-black">
                       <span>
                         <svg
                           width="16"
@@ -390,7 +391,7 @@ export default function AllProductPage({ response, sellerInfo }) {
                       </span>
                       <span>{sellerInfo.seller.email}</span>
                     </li>
-                    <li className="text-black flex space-x-5 items-center leading-9 text-base font-normal">
+                    <li className="flex items-center space-x-5 text-base font-normal leading-9 text-black">
                       <span>
                         <svg
                           width="15"
@@ -407,7 +408,7 @@ export default function AllProductPage({ response, sellerInfo }) {
                       </span>
                       <span>{sellerInfo.seller.phone}</span>
                     </li>
-                    <li className="text-black flex space-x-5 items-center leading-9 text-base font-normal">
+                    <li className="flex items-center space-x-5 text-base font-normal leading-9 text-black">
                       <span>
                         <svg
                           width="14"
@@ -427,7 +428,7 @@ export default function AllProductPage({ response, sellerInfo }) {
                   </ul>
                 </div>
 
-                <div className="saller-name lg:block hidden">
+                <div className="hidden saller-name lg:block">
                   <h1 className="text-[60px] font-bold">
                     {sellerInfo.seller.shop_name}
                   </h1>
@@ -492,8 +493,8 @@ export default function AllProductPage({ response, sellerInfo }) {
                   </div>
                 </div>
 
-                <div className="saller-logo mt-5 sm:mt-5">
-                  <div className="flex sm:justify-center justify-start">
+                <div className="mt-5 saller-logo sm:mt-5">
+                  <div className="flex justify-start sm:justify-center">
                     <div className="w-[170px] h-[170px] flex justify-center items-center rounded-full bg-white relative mb-1 overflow-hidden">
                       <Image
                         layout="fill"
@@ -507,7 +508,7 @@ export default function AllProductPage({ response, sellerInfo }) {
                       />
                     </div>
                   </div>
-                  <div className="flex sm:justify-center justify-start">
+                  <div className="flex justify-start sm:justify-center">
                     <span className="text-[30px] font-medium text-center">
                       {sellerInfo.seller.shop_name}
                     </span>
@@ -563,7 +564,7 @@ export default function AllProductPage({ response, sellerInfo }) {
                     <div className="flex flex-col justify-between w-full h-full">
                       <div>
                         <div className="mb-[10px]">
-                          <span className="text-white uppercase text-xs font-semibold">
+                          <span className="text-xs font-semibold text-white uppercase">
                             {response.data.shopPageSidebarBanner.title_one}
                           </span>
                         </div>
@@ -586,7 +587,7 @@ export default function AllProductPage({ response, sellerInfo }) {
                           passHref
                         >
                           <a rel="noopener noreferrer">
-                            <div className="cursor-pointer w-full relative  ">
+                            <div className="relative w-full cursor-pointer ">
                               <div className="inline-flex  space-x-1.5 items-center relative z-20">
                                 <span className="text-sm text-white font-medium leading-[30px]">
                                   {langCntnt && langCntnt.Shop_Now}
@@ -645,9 +646,9 @@ export default function AllProductPage({ response, sellerInfo }) {
                       {langCntnt && langCntnt.results}
                     </p>
                   </div>
-                  {/*<div className="flex space-x-3 items-center">*/}
+                  {/*<div className="flex items-center space-x-3">*/}
                   {/*  <span className="font-400 text-[13px]">Sort by:</span>*/}
-                  {/*  <div className="flex space-x-3 items-center border-b border-b-qgray">*/}
+                  {/*  <div className="flex items-center space-x-3 border-b border-b-qgray">*/}
                   {/*    <span className="font-400 text-[13px] text-qgray">*/}
                   {/*      Default*/}
                   {/*    </span>*/}
@@ -664,7 +665,7 @@ export default function AllProductPage({ response, sellerInfo }) {
                   {/*    </span>*/}
                   {/*  </div>*/}
                   {/*</div>*/}
-                  <div className="flex space-x-3 items-center">
+                  <div className="flex items-center space-x-3">
                     <span className="font-bold  text-qblack text-[13px]">
                       {langCntnt && langCntnt.View_by} :
                     </span>
@@ -704,11 +705,11 @@ export default function AllProductPage({ response, sellerInfo }) {
                   <button
                     onClick={() => setToggle(!filterToggle)}
                     type="button"
-                    className="w-10 lg:hidden h-10 rounded flex justify-center items-center border border-qgreen text-qgreen"
+                    className="flex items-center justify-center w-10 h-10 border rounded lg:hidden border-qgreen text-qgreen"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -813,9 +814,9 @@ export default function AllProductPage({ response, sellerInfo }) {
                       type="button"
                       className="w-[180px] h-[54px] primary-bg rounded mt-10"
                     >
-                      <div className="flex justify-center w-full h-full items-center group rounded relative transition-all duration-300 ease-in-out overflow-hidden cursor-pointer">
-                        <div className="flex items-center transition-all duration-300 ease-in-out relative z-10  text-white">
-                          <span className="text-sm font-600 tracking-wide leading-7 mr-2">
+                      <div className="relative flex items-center justify-center w-full h-full overflow-hidden transition-all duration-300 ease-in-out rounded cursor-pointer group">
+                        <div className="relative z-10 flex items-center text-white transition-all duration-300 ease-in-out">
+                          <span className="mr-2 text-sm leading-7 tracking-wide font-600">
                             {langCntnt && langCntnt.Show_more}...
                           </span>
                           {loading && (

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import languageModel from "../../../utils/languageModel";
 import settings from "../../../utils/settings";
 import InputQuantityCom from "../Helpers/InputQuantityCom";
 import CheckProductIsExistsInFlashSale from "../Shared/CheckProductIsExistsInFlashSale";
-import languageModel from "../../../utils/languageModel";
 
 export default function ProductsTable({
   className,
@@ -62,7 +62,7 @@ export default function ProductsTable({
   };
   useEffect(() => {
     setItems(cartItems);
-  });
+  },[cartItems]);
   const { currency_icon } = settings();
   return (
     <div className={`w-full ${className || ""}`}>
@@ -77,7 +77,7 @@ export default function ProductsTable({
               <td className="py-4 whitespace-nowrap text-center min-w-[300px]">
                 {langCntnt && langCntnt.Price}
               </td>
-              <td className="py-4 whitespace-nowrap  text-center ">
+              <td className="py-4 text-center whitespace-nowrap ">
                 {langCntnt && langCntnt.quantity}
               </td>
               <td className="py-4 whitespace-nowrap  text-center min-w-[300px]">
@@ -94,7 +94,7 @@ export default function ProductsTable({
                   className="bg-white border-b hover:bg-gray-50"
                 >
                   <td className="pl-10  py-4  w-[380px]">
-                    <div className="flex space-x-6 items-center">
+                    <div className="flex items-center space-x-6">
                       <div className="w-[80px] h-[80px] rounded overflow-hidden flex justify-center items-center border border-[#CBECD9] relative">
                         <Image
                           layout="fill"
@@ -103,18 +103,18 @@ export default function ProductsTable({
                             item.product.thumb_image
                           }`}
                           alt="product"
-                          className="w-full h-full object-contain"
+                          className="object-contain w-full h-full"
                         />
                       </div>
-                      <div className="flex-1 flex flex-col">
+                      <div className="flex flex-col flex-1">
                         <p className="font-medium text-[15px] text-qblack">
                           {item.product.name}
                         </p>
                       </div>
                     </div>
                   </td>
-                  <td className="text-center py-4 px-2">
-                    <div className="flex space-x-1 items-center justify-center">
+                  <td className="px-2 py-4 text-center">
+                    <div className="flex items-center justify-center space-x-1">
                       <span className="text-[15px] font-normal">
                         {/*{CheckProductIsExistsInFlashSale({*/}
                         {/*  id: item.id,*/}
@@ -147,8 +147,8 @@ export default function ProductsTable({
                       </span>
                     </div>
                   </td>
-                  <td className=" py-4">
-                    <div className="flex justify-center items-center">
+                  <td className="py-4 ">
+                    <div className="flex items-center justify-center">
                       <InputQuantityCom
                         decrementQty={decrementQty}
                         incrementQty={incrementQty}
@@ -160,7 +160,7 @@ export default function ProductsTable({
                     </div>
                   </td>
                   <td className="text-right py-4 w-[200px]">
-                    <div className="flex space-x-1 items-center justify-center">
+                    <div className="flex items-center justify-center space-x-1">
                       <span className="text-[15px] font-normal">
                         <CheckProductIsExistsInFlashSale
                           id={item.product_id}
@@ -170,8 +170,8 @@ export default function ProductsTable({
                       </span>
                     </div>
                   </td>
-                  <td className="text-right py-4">
-                    <div className="flex space-x-1 items-center justify-center re">
+                  <td className="py-4 text-right">
+                    <div className="flex items-center justify-center space-x-1 re">
                       <span
                         onClick={() => deleteItem(item.id)}
                         className="cursor-pointer text-qgray w-2.5 h-2.5 transform scale-100 hover:scale-110 hover:text-qred transition duration-300 ease-in-out "

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import settings from "../../../utils/settings";
 import SectionStyleFour from "../Helpers/SectionStyleFour";
 import SectionStyleOne from "../Helpers/SectionStyleOne";
@@ -12,10 +13,10 @@ import Banner from "./Banner";
 // import ProductsAds from "./ProductsAds";
 import Ads from "./Ads";
 import CategorySection from "./CategorySection";
-import ProductsAdsSingleRow from "./ProductAds/ProductAdsSingleRow";
 import ProductsAdsSingleRowTwo from "./ProductAds/ProductAdsSingleRowTwo";
 import TwoColumnAds from "./ProductAds/TwoColumnAds";
 export default function Home({ homepageData }) {
+  const { websiteSetup } = useSelector((state) => state.websiteSetup);
   const [homepage] = useState(homepageData);
   const getsectionTitles = homepageData.section_title;
   const [sectionTitles, setSectionTitles] = useState(null);
@@ -52,12 +53,12 @@ export default function Home({ homepageData }) {
         )}
         <CategorySection
           categories={homepage.homepage_categories}
+          productCategories={websiteSetup.payload.productCategories}
           adsOne={homepage.threeColFirstBanner}
           adsTwo={homepage.threeColSecondBanner}
           adsThree={homepage.threeColThirdBanner}
           sectionTitle={sectionTitles && sectionTitles.My_Market_Category}
         />
-
         {homepage && (
           <SectionStyleOne
             products={homepage.popularCategoryProducts}
@@ -78,7 +79,6 @@ export default function Home({ homepageData }) {
         {/*    className="brand-section-wrapper md:mb-[60px] mb-[30px]"*/}
         {/*  />*/}
         {/*)}*/}
-
         <div className="w-full md:py-[60px] py-[30px] h-auto bg-[#FFFCF7]">
           {/* {homepage && (
             <CampaignCountDown
@@ -142,7 +142,6 @@ export default function Home({ homepageData }) {
             className="category-products"
           />
         )}
-
         {/* {homepage && (
           <ProductsAdsSingleRow
             ads={homepage.singleBannerOne}
