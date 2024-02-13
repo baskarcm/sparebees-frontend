@@ -247,7 +247,7 @@ function CategorySection({
             </div>
           </div>
           {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]"> */}
-          <Slider {...settings}>
+          {/* <Slider {...settings}>
             {productCategories[1].active_sub_categories.length > 0 &&
               productCategories[1].active_sub_categories
                 // .slice(0, categories.length > 6 ? 6 : categories.length)
@@ -285,7 +285,7 @@ function CategorySection({
                     </Link>
                   </div>
                 ))}
-          </Slider>
+          </Slider> */}
           {/* </div> */}
         </div>
         {/* four wheelers section */}
@@ -325,7 +325,7 @@ function CategorySection({
             </div>
           </div>
           {/* <div className="w-full grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-[30px]"> */}
-          <Slider {...settings}>
+          {/* <Slider {...settings}>
             {productCategories[2].active_sub_categories.length > 0 &&
               productCategories[2].active_sub_categories
                 // .slice(0, categories.length > 6 ? 6 : categories.length)
@@ -363,7 +363,7 @@ function CategorySection({
                     </Link>
                   </div>
                 ))}
-          </Slider>
+          </Slider> */}
           {/* </div> */}
         </div>
         {/* <div className="grid lg:grid-cols-3 grid-cols-1 gap-[30px]">

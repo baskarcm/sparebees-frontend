@@ -1,17 +1,16 @@
 import axios from "axios";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import isAuth from "../../../Middleware/isAuth";
 import apiRequest from "../../../utils/apiRequest";
 import auth from "../../../utils/auth";
+import languageModel from "../../../utils/languageModel";
 import settings from "../../../utils/settings";
 import BreadcrumbCom from "../BreadcrumbCom";
 import InputCom from "../Helpers/InputCom";
 import LoaderStyleOne from "../Helpers/Loaders/LoaderStyleOne";
 import StarRating from "../Helpers/StarRating";
-import languageModel from "../../../utils/languageModel";
 function OrderCom() {
   const router = useRouter();
   const { id } = router.query;
@@ -174,8 +173,8 @@ function OrderCom() {
   // setHover(0);
   return (
     <>
-      <div className="order-tracking-wrapper w-full">
-        <div className="container-x mx-auto">
+      <div className="w-full order-tracking-wrapper">
+        <div className="mx-auto container-x">
           <BreadcrumbCom
             paths={[
               { name: langCntnt && langCntnt.home, path: "/" },
@@ -184,7 +183,7 @@ function OrderCom() {
           />
           {resData && (
             <div className="w-full h-[168px]  bg-[#F3FAF5] rounded-2xl mb-10 relative print:hidden">
-              <div className="w-full px-10 flex justify-between pt-3 mb-7">
+              <div className="flex justify-between w-full px-10 pt-3 mb-7">
                 <div>
                   {resData.order_delivered_date && (
                     <p className="text-base font-400">
@@ -195,7 +194,7 @@ function OrderCom() {
                 </div>
                 <div>
                   {orderStatus === "Declined" && (
-                    <p className="text-base font-bold text-qred mr-10">
+                    <p className="mr-10 text-base font-bold text-qred">
                       {langCntnt && langCntnt.Your_order_is_declined}!
                     </p>
                   )}
@@ -204,7 +203,7 @@ function OrderCom() {
               <div className="flex lg:space-x-[373px] space-x-[90px] w-full h-full justify-center">
                 <div className="relative">
                   <div className="w-[30px] h-[30px] border-[8px] rounded-full border-qgreen bg-white relative z-20"></div>
-                  <p className="absolute -left-4 top-10 sm:text-base text-sm font-400">
+                  <p className="absolute text-sm -left-4 top-10 sm:text-base font-400">
                     {langCntnt && langCntnt.Pending}
                   </p>
                 </div>
@@ -228,7 +227,7 @@ function OrderCom() {
                         : "bg-white"
                     }`}
                   ></div>
-                  <p className="absolute -left-4 top-10 sm:text-base text-sm font-400">
+                  <p className="absolute text-sm -left-4 top-10 sm:text-base font-400">
                     {langCntnt && langCntnt.Progress}
                   </p>
                 </div>
@@ -247,7 +246,7 @@ function OrderCom() {
                         : "bg-white"
                     }`}
                   ></div>
-                  <p className="absolute -left-4 top-10 sm:text-base text-sm font-400">
+                  <p className="absolute text-sm -left-4 top-10 sm:text-base font-400">
                     {langCntnt && langCntnt.Delivered}
                   </p>
                 </div>
@@ -255,10 +254,10 @@ function OrderCom() {
             </div>
           )}
 
-          <div className="bg-white lg:p-10 p-3 rounded-xl">
+          <div className="p-3 bg-white lg:p-10 rounded-xl">
             {resData && (
               <div id="printSection">
-                <div className="sm:flex justify-between items-center mb-4">
+                <div className="items-center justify-between mb-4 sm:flex">
                   <div>
                     <h1 className="text-[26px] font-semibold text-qblack mb-2.5">
                       {resData.order_address &&
@@ -344,16 +343,16 @@ function OrderCom() {
                         <td className=" py-4 pl-10 block whitespace-nowrap  w-[380px]">
                           {langCntnt && langCntnt.Product}
                         </td>
-                        <td className="py-4 whitespace-nowrap  text-center">
+                        <td className="py-4 text-center whitespace-nowrap">
                           {langCntnt && langCntnt.quantity}
                         </td>
-                        <td className="py-4 whitespace-nowrap text-center">
+                        <td className="py-4 text-center whitespace-nowrap">
                           {langCntnt && langCntnt.Price}
                         </td>
-                        <td className="py-4 whitespace-nowrap text-center">
+                        <td className="py-4 text-center whitespace-nowrap">
                           {langCntnt && langCntnt.SUBTOTAL}
                         </td>
-                        <td className="py-4 whitespace-nowrap text-center print:hidden">
+                        <td className="py-4 text-center whitespace-nowrap print:hidden">
                           {langCntnt && langCntnt.review}
                         </td>
                       </tr>
@@ -365,40 +364,40 @@ function OrderCom() {
                             className="bg-white border-b hover:bg-gray-50"
                           >
                             <td className="pl-10 w-[400px] py-4 ">
-                              <div className="flex space-x-6 items-center">
+                              <div className="flex items-center space-x-6">
                                 {/*<div className="w-[80px] h-[80px] overflow-hidden flex justify-center items-center border border-[#CBECD9] relative">*/}
                                 {/*  <Image*/}
                                 {/*    layout="fill"*/}
                                 {/*    objectFit="scale-down"*/}
                                 {/*    src={`/assets/images/product-img-1.jpg`}*/}
                                 {/*    alt="product"*/}
-                                {/*    className="w-full h-full object-contain"*/}
+                                {/*    className="object-contain w-full h-full"*/}
                                 {/*  />*/}
                                 {/*</div>*/}
-                                <div className="flex-1 flex flex-col">
+                                <div className="flex flex-col flex-1">
                                   <p className="font-medium text-[15px] text-qblack">
                                     {item.product_name}
                                   </p>
                                 </div>
                               </div>
                             </td>
-                            <td className=" py-4">
-                              <div className="flex justify-center items-center">
+                            <td className="py-4 ">
+                              <div className="flex items-center justify-center">
                                 <div className="w-[54px] h-[40px] rounded justify-center flex items-center border border-qgray-border">
                                   <span>{item.qty}</span>
                                 </div>
                               </div>
                             </td>
-                            <td className="text-center py-4 px-2">
-                              <div className="flex space-x-1 items-center justify-center">
+                            <td className="px-2 py-4 text-center">
+                              <div className="flex items-center justify-center space-x-1">
                                 <span className="text-[15px] font-normal">
                                   <span>{currency_icon}</span>
                                   <span>{item.unit_price}</span>
                                 </span>
                               </div>
                             </td>
-                            <td className="text-center py-4 px-2">
-                              <div className="flex space-x-1 items-center justify-center">
+                            <td className="px-2 py-4 text-center">
+                              <div className="flex items-center justify-center space-x-1">
                                 <span className="text-[15px] font-normal">
                                   <span>{currency_icon}</span>
                                   <span>
@@ -407,13 +406,13 @@ function OrderCom() {
                                 </span>
                               </div>
                             </td>
-                            <td className="text-center py-4 px-2 print:hidden">
+                            <td className="px-2 py-4 text-center print:hidden">
                               <button
                                 onClick={() =>
                                   reviewModalHandler(item.product_id)
                                 }
                                 type="button"
-                                className="text-green-500 text-sm font-semibold capitalize"
+                                className="text-sm font-semibold text-green-500 capitalize"
                               >
                                 {langCntnt && langCntnt.review}
                               </button>
@@ -423,7 +422,7 @@ function OrderCom() {
                     </tbody>
                   </table>
                 </div>
-                <div className="flex sm:justify-end print:justify-end justify-center sm:mr-10">
+                <div className="flex justify-center sm:justify-end print:justify-end sm:mr-10">
                   <div>
                     <div className="flex justify-between font-semibold w-[200px] mb-1">
                       <p className="text-sm text-qblack">
@@ -481,18 +480,18 @@ function OrderCom() {
         </div>
       </div>
       {reviewModal && (
-        <div className="w-full h-full flex fixed left-0 top-0 justify-center z-50 items-center">
+        <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full">
           <div
             onClick={() => setReviewModal(!reviewModal)}
-            className="w-full h-full fixed left-0 right-0 bg-black  bg-opacity-25"
+            className="fixed left-0 right-0 w-full h-full bg-black bg-opacity-25"
           ></div>
           <div
             data-aos="fade-up"
             className="sm:w-1/2 w-full rounded bg-white relative py-[40px] px-[38px]"
             style={{ zIndex: "999" }}
           >
-            <div className="title-bar flex items-center justify-between mb-3">
-              <h1 className="text-2xl font-medium text-qblack mb-5">
+            <div className="flex items-center justify-between mb-3 title-bar">
+              <h1 className="mb-5 text-2xl font-medium text-qblack">
                 {langCntnt && langCntnt.Write_Your_Reviews}
               </h1>
               <span
@@ -514,7 +513,7 @@ function OrderCom() {
               </span>
             </div>
 
-            <div className="write-review w-full">
+            <div className="w-full write-review">
               <div className="flex space-x-1 items-center mb-[30px]">
                 <StarRating
                   hoverRating={hover}
@@ -560,7 +559,7 @@ function OrderCom() {
                     type="button"
                     className="bg-qgreen rounded text-white w-[300px] h-[50px]  flex justify-center"
                   >
-                    <span className="flex space-x-1 items-center h-full">
+                    <span className="flex items-center h-full space-x-1">
                       <span className="text-sm font-semibold">
                         {langCntnt && langCntnt.Submit_Review}
                       </span>

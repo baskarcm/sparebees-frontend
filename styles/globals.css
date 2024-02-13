@@ -318,7 +318,7 @@ h3 {
   border: 1px solid #34a853;
 }
 .container-x {
-  @apply md:px-8 xl:px-0 px-5 w-full;
+  @apply w-full px-5 md:px-8 xl:px-0;
   max-width: 1320px !important;
 }
 .animate-right-dir {
@@ -347,7 +347,7 @@ h3 {
   background: var(--secondary-color);
 }
 .gray-btn {
-  @apply flex justify-center items-center text-sm font-600;
+  @apply flex items-center justify-center text-sm font-600;
   background: #f0f1f3;
 }
 
@@ -429,10 +429,10 @@ h3 {
 }
 /*TODO:  ========= components ========= */
 .search-input {
-  @apply w-full h-full focus:outline-none focus:ring-0 pl-5 text-xs font-500 placeholder:text-qgraytwo;
+  @apply w-full h-full pl-5 text-xs focus:outline-none focus:ring-0 font-500 placeholder:text-qgraytwo;
 }
 .black-btn {
-  @apply bg-qblack text-white;
+  @apply text-white bg-qblack;
 }
 .breadcrumb-wrapper span:last-child .sperator {
   display: none;
@@ -523,7 +523,7 @@ h3 {
 }
 /*TODO: ========== home two =============*/
 .home-two .search-btn {
-  @apply bg-qh2-green text-white;
+  @apply text-white bg-qh2-green;
 }
 .home-two
   :is(
@@ -532,12 +532,12 @@ h3 {
     .product-row-card-style-one-two
   )
   .yellow-btn {
-  @apply bg-qh2-green text-white;
+  @apply text-white bg-qh2-green;
 }
 .home-two
   .quomodo-shop-middle-bar
   :is(.compaire > span, .favorite > span, .cart-wrapper .cart > span) {
-  @apply bg-qh2-green text-white;
+  @apply text-white bg-qh2-green;
 }
 .home-two .quomodo-shop-nav-bar.nav-widget-wrapper {
   @apply bg-qh2-green;
@@ -566,8 +566,6 @@ h3 {
 /*TODO:  =========header ========= */
 .category-dropdown {
   transition: all 0.5s ease-in-out;
-  overflow-x: scroll;
-  max-height: 400px;
 }
 .category .category-dropdown .categories-list .category-item {
   border-top: 1px solid #f8f8f8;
@@ -831,3 +829,23 @@ h3 {
 }
 
 /* TODO: ===============RESPONSIVE END */
+/* width */
+::-webkit-scrollbar { 
+  width: 5px; 
+} 
+
+/* Track */
+::-webkit-scrollbar-track { 
+  background: #eee; 
+} 
+
+/* Handle */
+::-webkit-scrollbar-thumb { 
+  background: #dcdcdc; 
+  border-radius: 5px; 
+} 
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover { 
+  background: #555; 
+}

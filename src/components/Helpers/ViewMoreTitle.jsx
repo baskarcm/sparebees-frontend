@@ -24,15 +24,15 @@ export default function ViewMoreTitle({
   }, []);
   return (
     <div className={`section-wrapper w-full ${className || ""}`}>
-      <div className="container-x mx-auto">
-        <div className=" section-title flex justify-between items-center mb-5">
+      <div className="mx-auto container-x">
+        <div className="flex items-center justify-between mb-5  section-title">
           <div>
-            <h1 className="sm:text-3xl text-xl font-600 text-qblacktext leading-none">
+            <h1 className="text-xl leading-none sm:text-3xl font-600 text-qblacktext">
               {categoryTitle}
             </h1>
           </div>
           {filterCategory && filterCategory.length > 0 && (
-            <div className="row-categories lg:flex space-x-10 items-center hidden">
+            <div className="items-center hidden space-x-10 row-categories lg:flex">
               {filterCategory
                 .slice(0, filterCategory.length > 4 ? 4 : filterCategory.length)
                 .map((item, i) => (
@@ -40,9 +40,9 @@ export default function ViewMoreTitle({
                     <button
                       onClick={() => categoryHandler(item.category.id)}
                       title="button"
-                      className="cat-item text-tblack hover:text-qgreen hover:underline text-lg font-medium"
+                      className="text-lg font-medium cat-item text-tblack hover:text-qgreen hover:underline"
                     >
-                      {item.category.name}
+                      {/* {item.category.name} */}
                     </button>
                   </div>
                 ))}
@@ -52,7 +52,7 @@ export default function ViewMoreTitle({
           <div className="view-more-btn">
             <Link href={seeMoreUrl} passHref>
               <a rel="noopener noreferrer">
-                <div className="flex space-x-2 items-center cursor-pointer">
+                <div className="flex items-center space-x-2 cursor-pointer">
                   <p className="text-base font-600 text-qblack">
                     {langCntnt && langCntnt.View_More}
                   </p>
